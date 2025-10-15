@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulamula Traditional Authority - Mulamula Royal Family</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+/* kill horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+        body {
+            box-sizing: border-box;
+        }
+        
+        .traditional-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #D2691E 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile Sidebar Styles */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: #7C2D12;
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-sidebar.open {
+            left: 0;
+        }
+        
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #D97706;
+            border-radius: 50%;
+            border: 3px solid #FED7AA;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #FED7AA;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Hero Slider Styles */
+        .hero-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            space-x: 0.5rem;
+            z-index: 20;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 0 0.25rem;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-gray-800">
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+    
+    <!-- Mobile Sidebar -->
+<div id="mobileSidebar" class="mobile-sidebar bg-gradient-to-b from-orange-900 to-orange-800 text-white shadow-2xl">
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-8 border-b border-orange-700 pb-4">
+            <div class="flex items-center space-x-3">
+                <img src="images/logo.png" alt="Mulamula Logo" 
+                     class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
+                <h2 class="text-2xl font-bold">Menu</h2>
+            </div>
+            <button onclick="closeMobileSidebar()" 
+                    class="text-white hover:text-orange-300 transition-transform transform hover:rotate-90 duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col space-y-4">
+            <button onclick="showPage('home')" 
+                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
+                Home
+            </button>
+            <button onclick="showPage('about')" 
+                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
+                About & History
+            </button>
+            <button onclick="showPage('council')" 
+                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
+                Leadership
+            </button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Navigation -->
+<nav class="bg-orange-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <!-- Left side: Logo and title -->
+            <div class="flex items-center space-x-4">
+                <img src="images/logo.png" alt="Mulamula Logo" 
+                     class="w-16 h-16 object-contain rounded-full border-4 border-white shadow-lg brightness-110 hover:scale-105 transition-transform duration-300">
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
+                    <p class="text-orange-200 text-sm">Mulamula Royal Family</p>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <button onclick="showPage('home')" class="nav-link hover:text-orange-200 transition-colors">Home</button>
+                <button onclick="showPage('about')" class="nav-link hover:text-orange-200 transition-colors">About & History</button>
+                <button onclick="showPage('council')" class="nav-link hover:text-orange-200 transition-colors">Leadership</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="openMobileSidebar()" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- HOME PAGE -->
+        <div id="home" class="page">
+            <!-- Hero Slider -->
+            <section class="hero-slider">
+                <!-- Slide 1: Welcome -->
+                <div class="slide active" style="background-image: url('images/hero1.jpg');">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6" data-aos="fade-up" data-aos-delay="200">Mulamula Traditional Authority</h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+                            Official platform of the Mulamula Royal Family, traditional authority for four villages in Malamulele-West, Vhembe District, Limpopo.
+                        </p>
+                        <button onclick="showPage('about')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors" data-aos="fade-up" data-aos-delay="600">
+                            Learn Our Story
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Heritage -->
+                <div class="slide" style="background-image: url('images/hero2.jpg');">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6">Rich Heritage Since 1824</h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                            Founded by Chavane "Mulamula" Maluleke, our traditional authority has preserved Xitsonga customs and leadership for over 200 years.
+                        </p>
+                        <button onclick="showPage('about')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                            Explore Our History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Leadership -->
+                <div class="slide" style="background-image: url('images/hero3.jpg');">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6">Traditional Leadership</h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                            Our Royal Council, established in 1992, provides governance and development leadership to our four villages.
+                        </p>
+                        <button onclick="showPage('council')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                            Meet Our Leaders
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Community -->
+                <div class="slide" style="background-image: url('images/hero4.jpg');">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6">Serving Our Communities</h1>
+                        <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                            Dedicated to ensuring stability, development, and essential services for Nhombelani, Dumela, Muswane, and Mulamula villages.
+                        </p>
+                        <button onclick="showPage('contact')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                            Get In Touch
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slider Navigation -->
+                <div class="slider-nav">
+                    <div class="slider-dot active" onclick="goToSlide(0)"></div>
+                    <div class="slider-dot" onclick="goToSlide(1)"></div>
+                    <div class="slider-dot" onclick="goToSlide(2)"></div>
+                    <div class="slider-dot" onclick="goToSlide(3)"></div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <h2 class="text-4xl font-bold mb-6 text-orange-900">Who We Are</h2>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                The Mulamula Traditional Community is situated in Malamulele-West and is composed of four villages: Nhombelani, Dumela, Muswane, and Mulamula head-kraal.
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                Our authority operates under the Traditional Leadership & Governance Framework Act 41 of 2003 and the Limpopo Traditional Leadership & Institutions Act 6 of 2005.
+                            </p>
+                            <button onclick="showPage('about')" class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                        <div data-aos="fade-left">
+                            <img src="images/hero1.jpg" alt="Traditional African village" class="rounded-lg shadow-lg w-full h-80 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Villages Section -->
+            <section class="py-16 parallax-bg" style="background-image: url('images/royal.jpg');">
+                <div class="bg-black bg-opacity-60 py-16">
+                    <div class="max-w-6xl mx-auto px-4">
+                        <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Our Four Villages</h2>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="text-center p-6 bg-white bg-opacity-90 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                                <img src="images/nhombelani.png" alt="Nhombelani village" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <h3 class="text-xl font-semibold mb-2 text-orange-900">Nhombelani</h3>
+                                <p class="text-sm text-gray-600">Traditional village community</p>
+                            </div>
+                            <div class="text-center p-6 bg-white bg-opacity-90 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                                <img src="images/dumela.png" alt="Dumela village" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <h3 class="text-xl font-semibold mb-2 text-orange-900">Dumela</h3>
+                                <p class="text-sm text-gray-600">Historic settlement area</p>
+                            </div>
+                            <div class="text-center p-6 bg-white bg-opacity-90 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                                <img src="images/muswane.png" alt="Muswane village" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <h3 class="text-xl font-semibold mb-2 text-orange-900">Muswane</h3>
+                                <p class="text-sm text-gray-600">Rural community center</p>
+                            </div>
+                            <div class="text-center p-6 bg-white bg-opacity-90 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                                <img src="images/mulamla.png" alt="Mulamula Head-Kraal" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <h3 class="text-xl font-semibold mb-2 text-orange-900">Mulamula Head-Kraal</h3>
+                                <p class="text-sm text-gray-600">Traditional seat of authority</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership Preview -->
+            <section class="py-16 bg-orange-50">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Leadership</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Our Royal Council, established in 1992, consists of members of royal blood who are descendants of Chavane and his brothers and sisters.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                            <img src="images/placeholder.jpg" alt="Chairperson" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Chairperson</h3>
+                            <p class="text-gray-600">Mr Risimati Elias Maluleke</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                            <img src="images/placeholder.jpg" alt="Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Secretary</h3>
+                            <p class="text-gray-600">Mr Khazamula Robert Maluleke</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                            <img src="images/placeholder.jpg" alt="Regent" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Ex-officio Regent</h3>
+                            <p class="text-gray-600">Mr Thomas Hasani Mulamula</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <button onclick="showPage('council')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                            Meet Full Council
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Official Documents & Records -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Official Documents & Records</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Complete archive of official correspondence, court documents, and government communications regarding the Mulamula Traditional Authority.
+                        </p>
+                    </div>
+                    
+                    <!-- Document Categories -->
+                    <div class="mb-8">
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <button onclick="filterDocuments('all')" class="doc-filter-btn active bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                                All Documents
+                            </button>
+                            <button onclick="filterDocuments('leadership')" class="doc-filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                                Leadership & Recognition
+                            </button>
+                            <button onclick="filterDocuments('court')" class="doc-filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                                Court Documents
+                            </button>
+                            <button onclick="filterDocuments('development')" class="doc-filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                                Community Development
+                            </button>
+                            <button onclick="filterDocuments('infrastructure')" class="doc-filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                                Infrastructure & Services
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Documents Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Leadership & Recognition Documents -->
+                        <div class="document-card bg-orange-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="leadership" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-orange-900">COGHSTA Recognition Letter</h3>
+                                    <p class="text-sm text-gray-600">17 Jan 2023</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Official Limpopo COGHSTA letter informing Collins-Chabane Municipality that Mr Desmond Maluleke has been recognised as Acting Senior Traditional Leader of Mulamula Traditional Council.
+                            </p>
+                            <button class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-orange-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="leadership" data-aos="fade-up" data-aos-delay="150">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-orange-900">Inauguration Site Preparation</h3>
+                                    <p class="text-sm text-gray-600">2023</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Request to Collins-Chabane Municipality & COGHSTA to clear and prepare the inauguration site and future tribal office stand scheduled for Sep/Oct 2023.
+                            </p>
+                            <button class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-orange-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="leadership" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-orange-900">Interim Traditional Council</h3>
+                                    <p class="text-sm text-gray-600">6 Nov 2023</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Minutes of community meeting where Mulamula community adopted an interim traditional council leadership list, forwarded to Vhembe District & COGHSTA.
+                            </p>
+                            <button class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <!-- Court Documents -->
+                        <div class="document-card bg-red-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="court" data-aos="fade-up" data-aos-delay="250">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l3-1m-3 1l-3-1"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-red-900">High Court Strike-Off Order</h3>
+                                    <p class="text-sm text-gray-600">12 Dec 2023</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Polokwane High Court order striking off the roll, for lack of urgency, an application by Mulamula Royal Family against the Premier, COGHSTA MEC and Desmond Maluleke.
+                            </p>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-red-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="court" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-red-900">Warrant of Execution</h3>
+                                    <p class="text-sm text-gray-600">3 Jun 2024</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Warrant authorising police to seize Mulamula Traditional Council stamps from five respondents interdicted from acting as leaders, accompanying 5 Mar 2024 court order.
+                            </p>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-red-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="court" data-aos="fade-up" data-aos-delay="350">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L12 21l-6.364-6.364M12 21l6.364-6.364M12 21V9m0 12l-6.364-6.364L12 9l6.364 6.364L12 21z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-red-900">Magistrate Court Interdict</h3>
+                                    <p class="text-sm text-gray-600">19 Jul 2019</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Malamulele Magistrate's urgent interim order barring four respondents from entering Mulamula Tribal Offices, allocating land or posing as traditional leaders.
+                            </p>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <!-- Community Development Documents -->
+                        <div class="document-card bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="development" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-900">Dumela Library Application</h3>
+                                    <p class="text-sm text-gray-600">2012</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Original motivation from Dumela Royal Council & Development Forum to Sports-Arts-Culture for a community library to serve 1,120 learners and 2,200 adults.
+                            </p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="development" data-aos="fade-up" data-aos-delay="450">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-900">MEC Library Meeting Invitation</h3>
+                                    <p class="text-sm text-gray-600">14 Mar 2019</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Formal invite from MEC Thandi Moraka to community leaders for meeting at Mzamani Thomas Primary School to resolve Dumela library construction impasse.
+                            </p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="development" data-aos="fade-up" data-aos-delay="500">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-900">Parliament Speaker Intervention</h3>
+                                    <p class="text-sm text-gray-600">2020</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                National Assembly Speaker forwards Mulamula Royal Council's plea for intervention on delayed Dumela library and allegations against provincial politicians.
+                            </p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="development" data-aos="fade-up" data-aos-delay="550">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-900">Hosi Photani Library Confirmation</h3>
+                                    <p class="text-sm text-gray-600">2019</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Senior Traditional Leader Hosi Joseph Photani Maluleke confirms to MEC Thandi Moraka that approved Dumela library must be built in Dumela village.
+                            </p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <!-- Infrastructure & Services Documents -->
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="600">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">Service Delivery Monitoring</h3>
+                                    <p class="text-sm text-gray-600">2018</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Frontline monitoring report listing electrification successes but ongoing water shortages, road & library delays; communication issues identified.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="650">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">Vhembe Health District Visit</h3>
+                                    <p class="text-sm text-gray-600">16 May 2018</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                National Health Dept. visit report on stalled clinic projects for Matsakali and Dumela villages; communities depend on distant Malamulele Hospital.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="700">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">TAR Road Application</h3>
+                                    <p class="text-sm text-gray-600">2012</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Dumela Development Forum & Mulamula Tribal Authority apply to Limpopo Transport Dept. for 20km tar road between Mdabula and Mphambo.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="750">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">Library Construction Tender</h3>
+                                    <p class="text-sm text-gray-600">Jul 2018</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                IDT tender advertisement calling for contractors graded 7GB or above to build the new Dumela Community Library; briefing 26 Jul 2018.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="800">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">New Settlements Demarcation</h3>
+                                    <p class="text-sm text-gray-600">Dec 2020</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Collins-Chabane Municipality acknowledges demarcation request for new residential sites at Mulamula; project prioritised in 2021/22 budget cycle.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="850">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">Three Additional Settlements</h3>
+                                    <p class="text-sm text-gray-600">Jun 2021</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Municipality confirms receipt of June 2021 letter requesting three additional settlements at Mulamula village; work deferred to 2022/23 financial year.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-green-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="infrastructure" data-aos="fade-up" data-aos-delay="900">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-900">Health Clinic Permission Bundle</h3>
+                                    <p class="text-sm text-gray-600">2017</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Chief Hasani Thomas Maluleke's permission-to-occupy for clinic on stand 307 Dumela, plus 2011 follow-up letter reminding Health Dept. of 1994-97 approval.
+                            </p>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+
+                        <div class="document-card bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col h-full" data-category="development" data-aos="fade-up" data-aos-delay="950">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-900">Thulamela DSAC Library Meeting</h3>
+                                    <p class="text-sm text-gray-600">Dec 2013</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4 flex-grow">
+                                Joint report after DSAC and Thulamela Municipality met; municipality explains Dumela is not a nodal development centre, library considered within 2030 spatial plans.
+                            </p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm mt-auto">
+                                View Document
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Document Archive Notice -->
+                    <div class="mt-12 bg-gray-50 p-8 rounded-lg">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-4 text-orange-900">Complete Document Archive</h3>
+                            <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                                This comprehensive archive contains all official correspondence, court documents, and government communications related to the Mulamula Traditional Authority from 2012 to present.
+                            </p>
+                            <div class="grid md:grid-cols-4 gap-6 text-center">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-2xl font-bold text-orange-600">18</div>
+                                    <div class="text-sm text-gray-600">Total Documents</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-2xl font-bold text-red-600">3</div>
+                                    <div class="text-sm text-gray-600">Court Orders</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-2xl font-bold text-blue-600">6</div>
+                                    <div class="text-sm text-gray-600">Development Projects</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-2xl font-bold text-green-600">7</div>
+                                    <div class="text-sm text-gray-600">Service Delivery</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link to Full Document Library -->
+                    <div class="mt-12 text-center">
+                        <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-8 rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-bold text-white mb-4">Complete Document Library</h3>
+                            <p class="text-orange-100 mb-6 max-w-2xl mx-auto">
+                                Access our comprehensive digital library containing all official documents, historical records, and correspondence related to the Mulamula Traditional Authority.
+                            </p>
+                            <a href="library.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors shadow-lg">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                Browse Full Document Library
+                            </a>
+                            <p class="text-orange-200 text-sm mt-4">
+                                Opens in new window • Searchable • Categorized • Downloadable PDFs
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Constitution Section -->
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Constitution</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            The founding document that governs our traditional authority, adopted in 2015 by the royal family lineage pillars.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Constitutional document" class="rounded-lg shadow-lg w-full h-80 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Document Details</h3>
+                            <div class="space-y-4 mb-6">
+                                <div>
+                                    <h4 class="font-semibold text-orange-700">Adoption Date:</h4>
+                                    <p class="text-lg">31 January 2015</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-orange-700">Authors:</h4>
+                                    <p class="text-lg">Secretary Khazamula Robert Maluleke with elders Magezi Daniel Maluleke and Gezani Thomas Maluleke</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-orange-700">Approved by:</h4>
+                                    <p class="text-lg">Five listed lineage pillars</p>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors flex items-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span>Download Constitution PDF</span>
+                            </button>
+                            
+                            <p class="text-sm text-gray-600 mt-4">
+                                <em>Note: This is a demo version. The actual PDF would be provided by the traditional authority.</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Contact Us</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Whether you're a community member, researcher, or visitor interested in our traditional authority, we welcome your engagement.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Postal Address</h3>
+                            <div class="text-lg space-y-2 mb-6">
+                                <p class="font-semibold">Mulamula Royal Council</p>
+                                <p>P O Box 1201</p>
+                                <p>Malamulele 0983</p>
+                                <p>Limpopo Province</p>
+                            </div>
+                            
+                            <div class="p-4 bg-white rounded-lg">
+                                <p class="text-sm text-gray-600">
+                                    <strong>Note:</strong> Official telephone and email channels are being established and will be gazetted in due course.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-left">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Send a Message</h3>
+                            <form onsubmit="handleContactForm(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Name</label>
+                                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Village (if applicable)</label>
+                                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+                                        <option value="">Select village</option>
+                                        <option value="nhombelani">Nhombelani</option>
+                                        <option value="dumela">Dumela</option>
+                                        <option value="muswane">Muswane</option>
+                                        <option value="mulamula">Mulamula Head-Kraal</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Subject</label>
+                                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Message</label>
+                                    <textarea rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+                                    Send Message
+                                </button>
+                            </form>
+                            
+                            <div id="contactSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+                                Thank you for your message. We will respond via postal mail to the address you provided.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT & HISTORY PAGE -->
+        <div id="about" class="page hidden">
+            <!-- Hero Section -->
+            <section class="parallax-bg py-20" style="background-image: url('images/royal.jpg');">
+                <div class="bg-black bg-opacity-60 py-20">
+                    <div class="max-w-6xl mx-auto px-4 text-center">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">About & History</h1>
+                        <p class="text-xl text-white max-w-3xl mx-auto">
+                            Discover the rich heritage and traditional governance of the Mulamula Royal Family
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6 text-orange-900">Who We Are</h2>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                The Mulamula Traditional Community is situated in Malamulele-West and is composed of four villages:
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 text-lg mb-6">
+                                <li>Nhombelani</li>
+                                <li>Dumela</li>
+                                <li>Muswane</li>
+                                <li>Mulamula head-kraal</li>
+                            </ul>
+                            <p class="text-lg leading-relaxed">
+                                Our traditional authority has been serving these communities for over 200 years, preserving Xitsonga customs and providing leadership under South African law.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="images/royal.jpg" alt="Traditional African community" class="rounded-lg shadow-lg w-full h-80 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+
+                    <!-- Legal Framework -->
+                    <div class="bg-orange-50 p-8 rounded-lg mb-16">
+                        <h2 class="text-3xl font-bold mb-6 text-orange-900">Legal Framework</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xl font-semibold text-orange-700 mb-3">National Legislation</h3>
+                                <p class="text-lg">Traditional Leadership & Governance Framework Act 41 of 2003, §1(1)</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-orange-700 mb-3">Provincial Legislation</h3>
+                                <p class="text-lg">Limpopo Traditional Leadership & Institutions Act 6 of 2005, §1(1)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Timeline -->
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Historical Timeline</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            From the birth of our founder Chavane "Mulamula" Maluleke to the present day, trace the journey of our traditional authority.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="space-y-6">
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1824</div>
+                                    <div class="text-lg">Chavane "Mulamula" Maluleke born</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1856</div>
+                                    <div class="text-lg">First-born son Mbhayimbhayi born</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1918</div>
+                                    <div class="text-lg">Mbhayimbhayi dies</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1919</div>
+                                    <div class="text-lg">Founder Chavane Mulamula dies</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1920-27</div>
+                                    <div class="text-lg">Regency: Dumela Maluleke</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1927</div>
+                                    <div class="text-lg">Photani Maluleke installed as chief</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1947</div>
+                                    <div class="text-lg">Photani dies</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1947-77</div>
+                                    <div class="text-lg">Regency: Risimati John Maluleke</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1978-today</div>
+                                    <div class="text-lg">Regency: Thomas Hasani Mulamula</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">2014</div>
+                                    <div class="text-lg">George Mkhacani Maluleke submits written request to royal council to assume birth-right</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Royal Genealogy -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Royal Genealogy</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            The founding generation that established our traditional authority and continues to guide our leadership today.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="bg-orange-50 p-8 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Founding Generation</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-orange-600 pl-6">
+                                    <h4 class="text-xl font-bold text-orange-900">Founder: Chavane "Mulamula" Maluleke</h4>
+                                    <p class="text-gray-600">Born: 1824</p>
+                                </div>
+                                
+                                <div class="ml-8 space-y-4">
+                                    <div class="border-l-4 border-orange-400 pl-6">
+                                        <h5 class="text-lg font-semibold">Principal Wife: Nwa-Khwenu</h5>
+                                    </div>
+                                    
+                                    <div class="ml-8 border-l-4 border-orange-300 pl-6">
+                                        <h6 class="text-lg font-semibold text-orange-800">First-born son: Mbhayimbhayi</h6>
+                                        <p class="text-gray-600">Born: 1856</p>
+                                        <p class="text-sm text-gray-500 italic">Ancestor of current regent line</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-4 bg-white rounded-lg">
+                                <p class="text-sm text-gray-600">
+                                    <strong>Note:</strong> Complete genealogical information including all children per wife is available in the full constitutional document.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <img src="images/royal.jpg" alt="Traditional African leadership" class="rounded-lg shadow-lg w-full h-80 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- LEADERSHIP PAGE -->
+        <div id="council" class="page hidden">
+            <!-- Hero Section -->
+            <section class="parallax-bg py-20" style="background-image: url('images/hero1.jpg');">
+                <div class="bg-black bg-opacity-60 py-20">
+                    <div class="max-w-6xl mx-auto px-4 text-center">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">Leadership</h1>
+                        <p class="text-xl text-white max-w-3xl mx-auto">
+                            Meet the Royal Council that guides our traditional authority and serves our four villages
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Council Overview -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-6 text-orange-900">Royal Council</h2>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                Officially constituted in 1992, our Royal Council serves 10-year renewable terms and consists exclusively of members of royal blood who are descendants of Chavane and his brothers and sisters.
+                            </p>
+                            <p class="text-lg leading-relaxed italic text-orange-800">
+                                "Must consist of only members of royal blood who are the descendants of Chavane and his brothers as well as his sisters."
+                            </p>
+                        </div>
+                        <div>
+                            <img src="images/hero1.jpg" alt="Traditional leadership meeting" class="rounded-lg shadow-lg w-full h-80 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Executive -->
+            <section class="py-16 bg-orange-50">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Executive</h2>
+                        <p class="text-lg text-gray-600">Elected 2013, term ends 2022</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Chairperson" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Chairperson</h3>
+                            <p class="text-gray-600 font-semibold">Mr Risimati Elias Maluleke</p>
+                            <p class="text-sm text-gray-500 mt-2">Leading the Royal Council with wisdom and dedication</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Deputy Chair" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Deputy Chair</h3>
+                            <p class="text-gray-600 font-semibold">Mr Mdungaz Joseph Maluleke</p>
+                            <p class="text-sm text-gray-500 mt-2">Supporting leadership and council operations</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Secretary</h3>
+                            <p class="text-gray-600 font-semibold">Mr Khazamula Robert Maluleke</p>
+                            <p class="text-sm text-gray-500 mt-2">Managing records and council communications</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Deputy Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Deputy Secretary</h3>
+                            <p class="text-gray-600 font-semibold">Musa Mulamula</p>
+                            <p class="text-sm text-gray-500 mt-2">Assisting with administrative duties</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Treasurer" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Treasurer</h3>
+                            <p class="text-gray-600 font-semibold">Mr Maluleke Mzamani Thomas Dumela</p>
+                            <p class="text-sm text-gray-500 mt-2">Managing financial affairs and resources</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <img src="images/placeholder.jpg" alt="Regent" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <h3 class="text-xl font-bold text-orange-900 mb-2">Ex-officio Regent</h3>
+                            <p class="text-gray-600 font-semibold">Mr Thomas Hasani Mulamula</p>
+                            <p class="text-sm text-gray-500 mt-2">Current regent serving since 1978</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mandate & Functions -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Mandate & Functions</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            The Royal Council carries out essential duties to serve our communities and preserve our traditional governance.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-orange-50 p-8 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Core Responsibilities</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white font-bold">1</span>
+                                    </div>
+                                    <p class="text-lg">Ensure stability and development in the four villages.</p>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white font-bold">2</span>
+                                    </div>
+                                    <p class="text-lg">Ensure that subjects receive required services.</p>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white font-bold">3</span>
+                                    </div>
+                                    <p class="text-lg">Preserve first-house lineage primacy per Xitsonga customary law.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-8 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Additional Functions</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white font-bold">4</span>
+                                    </div>
+                                    <p class="text-lg">Provide sound leadership to headmen under the jurisdiction.</p>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white font-bold">5</span>
+                                    </div>
+                                    <p class="text-lg">Develop policies for implementation via the traditional council and COGSTA.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-orange-800">Governance & Meetings</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-semibold text-orange-900 mb-2">Emergency Meetings</h4>
+                                <p class="text-sm text-gray-600">Executive may call royal family meetings at any time for urgent matters</p>
+                            </div>
+                            
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-semibold text-orange-900 mb-2">Record Keeping</h4>
+                                <p class="text-sm text-gray-600">Minutes kept for possible inspection by the Premier's office</p>
+                            </div>
+                            
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-semibold text-orange-900 mb-2">Annual Reports</h4>
+                                <p class="text-sm text-gray-600">Full oral report to all family members at least once a year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+
+    <!-- Footer -->
+<footer class="bg-orange-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Left Section: Logo + Name -->
+            <div class="flex items-center space-x-4">
+                <img src="images/logo.png" alt="Mulamula Logo"
+                     class="w-24 h-24 object-cover rounded-2xl border-4 border-white shadow-xl brightness-110">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">Mulamula Traditional Authority</h3>
+                    <p class="text-orange-200 text-sm">
+                        Preserving tradition, serving our communities in Malamulele-West, Vhembe District, Limpopo Province.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Villages -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Our Villages</h3>
+                <ul class="space-y-2 text-orange-200">
+                    <li>Nhombelani</li>
+                    <li>Dumela</li>
+                    <li>Muswane</li>
+                    <li>Mulamula Head-Kraal</li>
+                </ul>
+            </div>
+            
+            <!-- Legal -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Legal Framework</h3>
+                <ul class="space-y-2 text-orange-200 text-sm">
+                    <li>Traditional Leadership & Governance Framework Act 41 of 2003</li>
+                    <li>Limpopo Traditional Leadership & Institutions Act 6 of 2005</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-orange-800 mt-8 pt-8 text-center text-orange-200">
+            <p>&copy; 2024 Mulamula Royal Family. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        let currentPage = 'home';
+        let currentSlide = 0;
+        let slideInterval;
+        
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            document.getElementById(pageId).classList.add('fade-in');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-orange-200');
+            });
+            
+            currentPage = pageId;
+            
+            // Close mobile sidebar
+            closeMobileSidebar();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Refresh AOS animations for the new page
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+            
+            // Start/stop slider based on page
+            if (pageId === 'home') {
+                startSlider();
+            } else {
+                stopSlider();
+            }
+        }
+        
+        function openMobileSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            // Show success message
+            document.getElementById('contactSuccess').classList.remove('hidden');
+            
+            // Reset form
+            event.target.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('contactSuccess').classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Hero Slider Functions
+        function goToSlide(slideIndex) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            // Remove active class from current slide and dot
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            // Update current slide
+            currentSlide = slideIndex;
+            
+            // Add active class to new slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            const nextIndex = (currentSlide + 1) % slides.length;
+            goToSlide(nextIndex);
+        }
+        
+        function startSlider() {
+            stopSlider(); // Clear any existing interval
+            slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+        
+        function stopSlider() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+        
+        // Document filtering functionality
+        function filterDocuments(category) {
+            const cards = document.querySelectorAll('.document-card');
+            const buttons = document.querySelectorAll('.doc-filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-orange-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Set active button
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('active', 'bg-orange-600', 'text-white');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.classList.remove('hidden');
+                } else {
+                    card.style.display = 'none';
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Refresh AOS animations for visible cards
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 100
+            });
+            
+            showPage('home');
+            
+            // Add click handlers for slider dots
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Pause slider on hover
+            const heroSlider = document.querySelector('.hero-slider');
+            if (heroSlider) {
+                heroSlider.addEventListener('mouseenter', stopSlider);
+                heroSlider.addEventListener('mouseleave', () => {
+                    if (currentPage === 'home') {
+                        startSlider();
+                    }
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ed05b9f54d738b',t:'MTc2MDUwNzI1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
