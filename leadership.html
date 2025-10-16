@@ -802,6 +802,31 @@ function closeMobileSidebar() {
    </div>
   </section>
 
+  <!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" class="fixed bottom-10 right-10 p-4 bg-orange-500/30 text-white rounded-full shadow-lg hover:bg-orange-600/50 transition-colors" id="scrollToTopBtn" style="display: none;">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<script>
+// Show/hide scroll to top button
+window.onscroll = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrollToTopBtn").style.display = "block";
+  } else {
+    document.getElementById("scrollToTopBtn").style.display = "none";
+  }
+};
+
+// Smooth scroll to top
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
 <!-- =========  UNIVERSAL FOOTER  ========= -->
 <footer id="universal-footer" class="bg-gradient-to-b from-orange-900 to-orange-800 text-white">
   <div class="max-w-7xl mx-auto px-6 py-12">
