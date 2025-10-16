@@ -33,6 +33,8 @@
     <!-- Styles and Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
@@ -206,75 +208,213 @@ html, body {
     </style>
 </head>
 <body class="bg-orange-50 text-gray-800">
-    <!-- Mobile Sidebar Overlay -->
-    <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
-    
-    <!-- Mobile Sidebar -->
-<div id="mobileSidebar" class="mobile-sidebar bg-gradient-to-b from-orange-900 to-orange-800 text-white shadow-2xl">
-    <div class="p-6">
-        <div class="flex justify-between items-center mb-8 border-b border-orange-700 pb-4">
-            <div class="flex items-center space-x-3">
-                <img src="images/logo.png" alt="Mulamula Logo" 
-                     class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
-                <h2 class="text-2xl font-bold">Menu</h2>
-            </div>
-            <button onclick="closeMobileSidebar()" 
-                    class="text-white hover:text-orange-300 transition-transform transform hover:rotate-90 duration-300">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                          d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
+ <!-- =========  MOBILE SIDEBAR  ========= -->
+<div id="sidebarOverlay"
+     class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-opacity"
+     onclick="closeMobileSidebar()"></div>
 
-        <div class="flex flex-col space-y-4">
-            <button onclick="showPage('home')" 
-                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
-                Home
-            </button>
-            <button onclick="showPage('about')" 
-                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
-                About & History
-            </button>
-            <button onclick="showPage('council')" 
-                    class="w-full text-left text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">
-                Leadership
-            </button>
-        </div>
+<aside id="mobileSidebar"
+       class="fixed top-0 left-0 w-[300px] h-full
+              bg-gradient-to-b from-orange-900 to-orange-800 text-white
+              shadow-2xl z-50 -translate-x-full transition-transform duration-300
+              overflow-y-auto">
+  <div class="p-6">
+    <!-- header -->
+    <div class="flex items-center justify-between mb-8 border-b border-orange-700 pb-4">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
+        <h2 class="text-2xl font-bold">Menu</h2>
+      </div>
+      <button onclick="closeMobileSidebar()"
+              class="text-white hover:text-orange-300 transition-transform hover:rotate-90">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
     </div>
-</div>
 
+    <!-- links -->
+    <nav class="flex flex-col space-y-4">
+      <a href="index.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Home</a>
+      <a href="about.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">About & History</a>
+      <a href="leadership.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Leadership</a>
 
-    <!-- Navigation -->
-<nav class="bg-orange-900 text-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-            <!-- Left side: Logo and title -->
-            <div class="flex items-center space-x-4">
-                <img src="images/logo.png" alt="Mulamula Logo" 
-                     class="w-16 h-16 object-contain rounded-full border-4 border-white shadow-lg brightness-110 hover:scale-105 transition-transform duration-300">
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
-                    <p class="text-orange-200 text-sm">Mulamula Royal Family</p>
-                </div>
-            </div>
+<!-- keep existing links, just add these two -->
+<a href="#documents"
+   onclick="closeMobileSidebar(); scrollToSection('documents')"
+   class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+          transition-colors shadow">Official Documents</a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-6">
-                <button onclick="showPage('home')" class="nav-link hover:text-orange-200 transition-colors">Home</button>
-                <button onclick="showPage('about')" class="nav-link hover:text-orange-200 transition-colors">About & History</button>
-                <button onclick="showPage('council')" class="nav-link hover:text-orange-200 transition-colors">Leadership</button>
-            </div>
+<a href="#constitution"
+   onclick="closeMobileSidebar(); scrollToSection('constitution')"
+   class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+          transition-colors shadow">Constitution</a>
 
-            <!-- Mobile Menu Button -->
-            <button onclick="openMobileSidebar()" class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+      <a href="contact.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Contact</a>
+    </nav>
+  </div>
+</aside>
+<!-- =========  END MOBILE SIDEBAR  ========= -->
+
+<!-- =========  DESKTOP NAV  ========= -->
+<nav id="mainNav"
+     class="bg-orange-900 text-white shadow-lg sticky top-0 z-40 transition-transform duration-300">
+
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- logo / title -->
+      <a href="index.html" class="flex items-center space-x-4">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-16 h-16 object-contain rounded-full border-4 border-white
+                    shadow-lg brightness-110 hover:scale-105 transition-transform">
+        <div>
+          <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
+          <p class="text-orange-200 text-sm">Mulamula Royal Family</p>
         </div>
+      </a>
+
+      <!-- desktop links -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-orange-200 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-orange-200 transition-colors">About & History</a>
+        <a href="leadership.html" class="hover:text-orange-200 transition-colors">Leadership</a>
+        <!-- keep existing links, just add these two -->
+<a href="#documents"
+   onclick="scrollToSection('documents')"
+   class="hover:text-orange-200 transition-colors">Documents</a>
+
+<a href="#constitution"
+   onclick="scrollToSection('constitution')"
+   class="hover:text-orange-200 transition-colors">Constitution</a>
+        <a href="contact.html" class="hover:text-orange-200 transition-colors">Contact</a>
+      </div>
+
+      <!-- burger -->
+      <button onclick="openMobileSidebar()" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
+  </div>
 </nav>
+<!-- =========  END DESKTOP NAV  ========= -->
+
+<script>
+/* ---------- sidebar open/close (unchanged but now also marks state) ---------- */
+let mobileSidebarOpen = false;
+function openMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.remove('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.remove('opacity-0', 'invisible');
+  document.body.style.overflow = 'hidden';
+  mobileSidebarOpen = true;
+}
+function closeMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.add('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.add('opacity-0', 'invisible');
+  document.body.style.overflow = '';
+  mobileSidebarOpen = false;
+}
+
+/* ---------- robust show/hide nav on scroll (uses inline transform, mobile-first) ---------- */
+(function() {
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+
+  // remove any Tailwind translate utility to avoid fighting inline transforms
+  // (optional but recommended). If you prefer not to modify classes, comment out next line.
+  nav.classList.remove('translate-y-0', '-translate-y-full');
+
+  // base style + smooth transition (keeps styling independent from Tailwind classes)
+  nav.style.transition = nav.style.transition || 'transform 280ms ease, opacity 280ms ease';
+  nav.style.willChange = 'transform, opacity';
+  nav.style.transform = 'translateY(0)';
+
+  let lastY = window.scrollY || 0;
+  let ticking = false;
+  const MIN_DELTA = 6;    // ignore tiny scrolls
+  const HIDE_AFTER = 90;  // only hide after user scrolled down this many px
+
+  function handle() {
+    const currentY = window.scrollY || 0;
+
+    // if sidebar is open, keep nav visible
+    if (mobileSidebarOpen) {
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+      lastY = currentY;
+      ticking = false;
+      return;
+    }
+
+    const delta = currentY - lastY;
+
+    // ignore small movements (noise, address bar show/hide)
+    if (Math.abs(delta) < MIN_DELTA) {
+      ticking = false;
+      return;
+    }
+
+    if (delta > 0 && currentY > HIDE_AFTER) {
+      // scrolling down
+      nav.style.transform = 'translateY(-110%)'; // hide (use -110% to guarantee full hide)
+      nav.style.opacity = '0.98';
+    } else if (delta < 0) {
+      // scrolling up
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+    }
+
+    lastY = currentY;
+    ticking = false;
+  }
+
+  // use requestAnimationFrame to throttle scroll events
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(handle);
+    }
+  }, { passive: true });
+
+  // re-evaluate on resize/orientation change (desktop/mobile switch)
+  window.addEventListener('resize', () => {
+    // if you want this behavior only on mobile screens, uncomment the block:
+    /*
+    if (window.innerWidth >= 768) {
+      nav.style.transform = 'translateY(0)';
+      return;
+    }
+    */
+  });
+
+  // ensure nav visible at page load
+  document.addEventListener('DOMContentLoaded', () => {
+    nav.style.transform = 'translateY(0)';
+    nav.style.opacity = '1';
+  });
+
+  // safety: if anything else sets transform later, reapply after 400ms when page idle
+  setTimeout(() => {
+    if (!mobileSidebarOpen) {
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+    }
+  }, 400);
+})();
+</script>
+
 
 
     <!-- Main Content -->
@@ -360,9 +500,11 @@ html, body {
                             <p class="text-lg mb-6 leading-relaxed">
                                 Our authority operates under the Traditional Leadership & Governance Framework Act 41 of 2003 and the Limpopo Traditional Leadership & Institutions Act 6 of 2005.
                             </p>
-                            <button onclick="showPage('about')" class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
-                                Learn More
-                            </button>
+                            <a href="about.html" 
+   class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+    Learn More
+</a>
+
                         </div>
                         <div data-aos="fade-left">
     <img src="images/hero1.jpg" 
@@ -406,46 +548,60 @@ html, body {
                 </div>
             </section>
 
-            <!-- Leadership Preview -->
-            <section class="py-16 bg-orange-50">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12" data-aos="fade-up">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Leadership</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Our Royal Council, established in 1992, consists of members of royal blood who are descendants of Chavane and his brothers and sisters.
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                            <img src="images/placeholder.jpg" alt="Chairperson" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Chairperson</h3>
-                            <p class="text-gray-600">Mr Risimati Elias Maluleke</p>
-                        </div>
-                        
-                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                            <img src="images/placeholder.jpg" alt="Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Secretary</h3>
-                            <p class="text-gray-600">Mr Khazamula Robert Maluleke</p>
-                        </div>
-                        
-                        <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                            <img src="images/placeholder.jpg" alt="Regent" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-semibold mb-2 text-orange-900">Ex-officio Regent</h3>
-                            <p class="text-gray-600">Mr Thomas Hasani Mulamula</p>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center mt-8">
-                        <button onclick="showPage('council')" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
-                            Meet Full Council
-                        </button>
-                    </div>
-                </div>
-            </section>
+    <!-- Leadership Preview -->
+<section class="py-16 bg-orange-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Leadership</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        The Mulamula Royal Council, established in 1992, upholds the values and traditions of the Maluleke Royal House while guiding the community with integrity and wisdom.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Ex-Officio -->
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/exofficio.jpg" alt="Ex-Officio Hosi Desmond Maluleke" 
+             class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+             onerror="this.style.display='none';">
+        <h3 class="text-xl font-semibold mb-2 text-orange-900">Ex-Officio</h3>
+        <p class="text-gray-600 font-medium">Hosi Desmond Maluleke</p>
+        <p class="text-sm text-gray-500 italic">Acting Senior Traditional Leader</p>
+      </div>
+
+      <!-- Chairperson -->
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <img src="images/chairperson.jpg" alt="Chairperson Mr. Maluleke Abel"
+             class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+             onerror="this.style.display='none';">
+        <h3 class="text-xl font-semibold mb-2 text-orange-900">Chairperson</h3>
+        <p class="text-gray-600 font-medium">Mr. Maluleke Abel</p>
+        <p class="text-sm text-gray-500 italic">Executive Head</p>
+      </div>
+
+      <!-- Deputy Chairperson -->
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/deputychair.jpg" alt="Deputy Chairperson Maluleke Audience Simon"
+             class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+             onerror="this.style.display='none';">
+        <h3 class="text-xl font-semibold mb-2 text-orange-900">Deputy Chairperson</h3>
+        <p class="text-gray-600 font-medium">Maluleke Audience Simon</p>
+        <p class="text-sm text-gray-500 italic">Executive Support</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="leadership.html"
+         class="inline-block bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+        Meet Full Council
+      </a>
+    </div>
+  </div>
+</section>
+
 
             <!-- Official Documents & Records -->
-            <section class="py-16 bg-white">
+            <section id="documents" class="py-16 bg-white"></section>
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="text-center mb-12" data-aos="fade-up">
                         <h2 class="text-4xl font-bold mb-6 text-orange-900">Official Documents & Records</h2>
@@ -895,7 +1051,7 @@ html, body {
             </section>
 
             <!-- Constitution Section -->
-            <section class="py-16 bg-gray-50">
+            <section id="constitution" class="py-16 bg-gray-50"></section>
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="text-center mb-12" data-aos="fade-up">
                         <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Constitution</h2>
@@ -928,692 +1084,277 @@ html, body {
                                 </div>
                             </div>
                             
-                            <button class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors flex items-center space-x-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <span>Download Constitution PDF</span>
-                            </button>
+                   <a href="documents/CONSTITUTION.pdf" download
+   class="inline-flex items-center bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors space-x-2 shadow-md">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    <span>Download Constitution PDF</span>
+</a>
+
                             
-                            <p class="text-sm text-gray-600 mt-4">
-                                <em>Note: This is a demo version. The actual PDF would be provided by the traditional authority.</em>
-                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Section -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12" data-aos="fade-up">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Contact Us</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Whether you're a community member, researcher, or visitor interested in our traditional authority, we welcome your engagement.
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-right">
-                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Postal Address</h3>
-                            <div class="text-lg space-y-2 mb-6">
-                                <p class="font-semibold">Mulamula Royal Council</p>
-                                <p>P O Box 1201</p>
-                                <p>Malamulele 0983</p>
-                                <p>Limpopo Province</p>
-                            </div>
-                            
-                            <div class="p-4 bg-white rounded-lg">
-                                <p class="text-sm text-gray-600">
-                                    <strong>Note:</strong> Official telephone and email channels are being established and will be gazetted in due course.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-left">
-                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Send a Message</h3>
-                            <form onsubmit="handleContactForm(event)" class="space-y-4">
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Name</label>
-                                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Village (if applicable)</label>
-                                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
-                                        <option value="">Select village</option>
-                                        <option value="nhombelani">Nhombelani</option>
-                                        <option value="dumela">Dumela</option>
-                                        <option value="muswane">Muswane</option>
-                                        <option value="mulamula">Mulamula Head-Kraal</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Subject</label>
-                                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Message</label>
-                                    <textarea rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"></textarea>
-                                </div>
-                                
-                                <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
-                                    Send Message
-                                </button>
-                            </form>
-                            
-                            <div id="contactSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
-                                Thank you for your message. We will respond via postal mail to the address you provided.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-6 text-orange-900">Contact Us</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Reach out to the Mulamula Traditional Authority for official matters, community inquiries, or documentation requests.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Info -->
+      <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-right">
+        <h3 class="text-2xl font-bold mb-6 text-orange-800">
+          <i class="fa-solid fa-crown text-orange-700 mr-2"></i> Traditional Authority – Main Contact
+        </h3>
+
+        <div class="space-y-4 text-gray-700 text-lg">
+          <p><i class="fab fa-whatsapp text-green-600 mr-2"></i> <strong>WhatsApp:</strong>
+            <a href="https://wa.me/27721089311" target="_blank" class="text-orange-700 hover:underline">+27 72 108 9311</a>
+          </p>
+          <p><i class="fa-solid fa-landmark text-orange-600 mr-2"></i> <strong>Office:</strong> Traditional Authority Office</p>
+          <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i> <strong>Location:</strong> Mulamula Head-Kraal, Limpopo</p>
         </div>
 
-        <!-- ABOUT & HISTORY PAGE -->
-        <div id="about" class="page hidden">
-            <!-- Hero Section -->
-            <section class="parallax-bg py-20" style="background-image: url('images/royal.jpg');">
-                <div class="bg-black bg-opacity-60 py-20">
-                    <div class="max-w-6xl mx-auto px-4 text-center">
-                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">About & History</h1>
-                        <p class="text-xl text-white max-w-3xl mx-auto">
-                            Discover the rich heritage and traditional governance of the Mulamula Royal Family
-                        </p>
-                    </div>
-                </div>
-            </section>
+        <hr class="my-6 border-orange-300">
 
-            <!-- About Section -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                        <div>
-                            <h2 class="text-4xl font-bold mb-6 text-orange-900">Who We Are</h2>
-                            <p class="text-lg mb-6 leading-relaxed">
-                                The Mulamula Traditional Community is situated in Malamulele-West and is composed of four villages:
-                            </p>
-                            <ul class="list-disc list-inside space-y-2 text-lg mb-6">
-                                <li>Nhombelani</li>
-                                <li>Dumela</li>
-                                <li>Muswane</li>
-                                <li>Mulamula head-kraal</li>
-                            </ul>
-                            <p class="text-lg leading-relaxed">
-                                Our traditional authority has been serving these communities for over 200 years, preserving Xitsonga customs and providing leadership under South African law.
-                            </p>
-                        </div>
-                        <div class="w-full">
-    <img src="images/royal.jpg" 
-         alt="Traditional African community" 
-         class="rounded-lg shadow-lg w-full h-auto object-contain" 
-         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-</div>
+        <h3 class="text-xl font-semibold text-orange-800">
+          <i class="fa-solid fa-circle-info text-orange-600 mr-2"></i> Information Officer
+        </h3>
+        <p class="text-gray-700 mt-1"><strong>Name:</strong> Dayson Dumela</p>
+        <p class="text-gray-700"><i class="fa-solid fa-phone text-green-600 mr-2"></i> <strong>Mobile:</strong> 083 956 2679</p>
+        <p class="text-gray-700"><i class="fa-solid fa-clipboard-list text-orange-600 mr-2"></i> <strong>Services:</strong> General Information & Inquiries</p>
+        <p class="text-gray-700"><i class="fa-regular fa-clock text-orange-600 mr-2"></i> <strong>Availability:</strong> Business Hours</p>
 
-                    </div>
+        <hr class="my-6 border-orange-300">
 
-                    <!-- Legal Framework -->
-                    <div class="bg-orange-50 p-8 rounded-lg mb-16">
-                        <h2 class="text-3xl font-bold mb-6 text-orange-900">Legal Framework</h2>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-semibold text-orange-700 mb-3">National Legislation</h3>
-                                <p class="text-lg">Traditional Leadership & Governance Framework Act 41 of 2003, §1(1)</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-orange-700 mb-3">Provincial Legislation</h3>
-                                <p class="text-lg">Limpopo Traditional Leadership & Institutions Act 6 of 2005, §1(1)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <h3 class="text-xl font-semibold text-orange-800">
+          <i class="fa-solid fa-pen-to-square text-orange-600 mr-2"></i> Council Secretary
+        </h3>
+        <p class="text-gray-700 mt-1"><strong>Name:</strong> Dr Ray Mkateko Mafumbheyani</p>
+        <p class="text-gray-700"><i class="fa-solid fa-phone text-green-600 mr-2"></i> <strong>Mobile:</strong> 073 512 6668</p>
+        <p class="text-gray-700"><i class="fa-solid fa-file-contract text-orange-600 mr-2"></i> <strong>Services:</strong> Official Documentation & Records</p>
+        <p class="text-gray-700"><i class="fa-solid fa-graduation-cap text-orange-600 mr-2"></i> <strong>Title:</strong> Doctor of Philosophy</p>
+      </div>
 
-            <!-- Historical Timeline -->
-            <section class="py-16 bg-gray-50">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Historical Timeline</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                            From the birth of our founder Chavane "Mulamula" Maluleke to the present day, trace the journey of our traditional authority.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <div class="space-y-6">
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1824</div>
-                                    <div class="text-lg">Chavane "Mulamula" Maluleke born</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1856</div>
-                                    <div class="text-lg">First-born son Mbhayimbhayi born</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1918</div>
-                                    <div class="text-lg">Mbhayimbhayi dies</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1919</div>
-                                    <div class="text-lg">Founder Chavane Mulamula dies</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1920-27</div>
-                                    <div class="text-lg">Regency: Dumela Maluleke</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1927</div>
-                                    <div class="text-lg">Photani Maluleke installed as chief</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1947</div>
-                                    <div class="text-lg">Photani dies</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1947-77</div>
-                                    <div class="text-lg">Regency: Risimati John Maluleke</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">1978-today</div>
-                                    <div class="text-lg">Regency: Thomas Hasani Mulamula</div>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <div class="font-bold text-orange-800 text-xl mb-2 md:mb-0 md:w-24">2014</div>
-                                    <div class="text-lg">George Mkhacani Maluleke submits written request to royal council to assume birth-right</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <!-- WhatsApp Contact Form -->
+      <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-left">
+        <h3 class="text-2xl font-bold mb-6 text-orange-800">
+          <i class="fab fa-whatsapp text-green-600 mr-2"></i> Send a Message via WhatsApp
+        </h3>
 
-            <!-- Royal Genealogy -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Royal Genealogy</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                            The founding generation that established our traditional authority and continues to guide our leadership today.
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-orange-50 p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Founding Generation</h3>
-                            
-                            <div class="space-y-6">
-                                <div class="border-l-4 border-orange-600 pl-6">
-                                    <h4 class="text-xl font-bold text-orange-900">Founder: Chavane "Mulamula" Maluleke</h4>
-                                    <p class="text-gray-600">Born: 1824</p>
-                                </div>
-                                
-                                <div class="ml-8 space-y-4">
-                                    <div class="border-l-4 border-orange-400 pl-6">
-                                        <h5 class="text-lg font-semibold">Principal Wife: Nwa-Khwenu</h5>
-                                    </div>
-                                    
-                                    <div class="ml-8 border-l-4 border-orange-300 pl-6">
-                                        <h6 class="text-lg font-semibold text-orange-800">First-born son: Mbhayimbhayi</h6>
-                                        <p class="text-gray-600">Born: 1856</p>
-                                        <p class="text-sm text-gray-500 italic">Ancestor of current regent line</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-8 p-4 bg-white rounded-lg">
-                                <p class="text-sm text-gray-600">
-                                    <strong>Note:</strong> Complete genealogical information including all children per wife is available in the full constitutional document.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="w-full">
-    <img src="images/royal.jpg" 
-         alt="Traditional African community" 
-         class="rounded-lg shadow-lg w-full h-auto object-contain" 
-         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-</div>
+        <form onsubmit="sendWhatsApp(event)" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Name</label>
+            <input type="text" id="waName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+          </div>
 
-                    </div>
-                </div>
-            </section>
-        </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Village (if applicable)</label>
+            <select id="waVillage" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+              <option value="">Select village</option>
+              <option value="Nhombelani">Nhombelani</option>
+              <option value="Dumela">Dumela</option>
+              <option value="Muswane">Muswane</option>
+              <option value="Mulamula Head-Kraal">Mulamula Head-Kraal</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
 
-        <!-- LEADERSHIP PAGE -->
-        <div id="council" class="page hidden">
-            <!-- Hero Section -->
-            <section class="parallax-bg py-20" style="background-image: url('images/hero1.jpg');">
-                <div class="bg-black bg-opacity-60 py-20">
-                    <div class="max-w-6xl mx-auto px-4 text-center">
-                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">Leadership</h1>
-                        <p class="text-xl text-white max-w-3xl mx-auto">
-                            Meet the Royal Council that guides our traditional authority and serves our four villages
-                        </p>
-                    </div>
-                </div>
-            </section>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Subject</label>
+            <input type="text" id="waSubject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+          </div>
 
-            <!-- Council Overview -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                        <div>
-                            <h2 class="text-4xl font-bold mb-6 text-orange-900">Royal Council</h2>
-                            <p class="text-lg mb-6 leading-relaxed">
-                                Officially constituted in 1992, our Royal Council serves 10-year renewable terms and consists exclusively of members of royal blood who are descendants of Chavane and his brothers and sisters.
-                            </p>
-                            <p class="text-lg leading-relaxed italic text-orange-800">
-                                "Must consist of only members of royal blood who are the descendants of Chavane and his brothers as well as his sisters."
-                            </p>
-                        </div>
-                        <div class="w-full">
-    <img src="images/hero1.jpg" 
-         alt="Traditional leadership meeting" 
-         class="rounded-lg shadow-lg w-full h-auto object-contain" 
-         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-</div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Message</label>
+            <textarea id="waMessage" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"></textarea>
+          </div>
 
-                    </div>
-                </div>
-            </section>
+          <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center space-x-2">
+            <i class="fab fa-whatsapp text-white text-lg"></i>
+            <span>Send via WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- Current Executive -->
-            <section class="py-16 bg-orange-50">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Executive</h2>
-                        <p class="text-lg text-gray-600">Elected 2013, term ends 2022</p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Chairperson" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Chairperson</h3>
-                            <p class="text-gray-600 font-semibold">Mr Risimati Elias Maluleke</p>
-                            <p class="text-sm text-gray-500 mt-2">Leading the Royal Council with wisdom and dedication</p>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Deputy Chair" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Deputy Chair</h3>
-                            <p class="text-gray-600 font-semibold">Mr Mdungaz Joseph Maluleke</p>
-                            <p class="text-sm text-gray-500 mt-2">Supporting leadership and council operations</p>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Secretary</h3>
-                            <p class="text-gray-600 font-semibold">Mr Khazamula Robert Maluleke</p>
-                            <p class="text-sm text-gray-500 mt-2">Managing records and council communications</p>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Deputy Secretary" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Deputy Secretary</h3>
-                            <p class="text-gray-600 font-semibold">Musa Mulamula</p>
-                            <p class="text-sm text-gray-500 mt-2">Assisting with administrative duties</p>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Treasurer" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Treasurer</h3>
-                            <p class="text-gray-600 font-semibold">Mr Maluleke Mzamani Thomas Dumela</p>
-                            <p class="text-sm text-gray-500 mt-2">Managing financial affairs and resources</p>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                            <img src="images/placeholder.jpg" alt="Regent" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-                            <h3 class="text-xl font-bold text-orange-900 mb-2">Ex-officio Regent</h3>
-                            <p class="text-gray-600 font-semibold">Mr Thomas Hasani Mulamula</p>
-                            <p class="text-sm text-gray-500 mt-2">Current regent serving since 1978</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<script>
+  function sendWhatsApp(e) {
+    e.preventDefault();
 
-            <!-- Mandate & Functions -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Mandate & Functions</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                            The Royal Council carries out essential duties to serve our communities and preserve our traditional governance.
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div class="bg-orange-50 p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Core Responsibilities</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                        <span class="text-white font-bold">1</span>
-                                    </div>
-                                    <p class="text-lg">Ensure stability and development in the four villages.</p>
-                                </div>
-                                
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                        <span class="text-white font-bold">2</span>
-                                    </div>
-                                    <p class="text-lg">Ensure that subjects receive required services.</p>
-                                </div>
-                                
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                        <span class="text-white font-bold">3</span>
-                                    </div>
-                                    <p class="text-lg">Preserve first-house lineage primacy per Xitsonga customary law.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-orange-50 p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold mb-6 text-orange-800">Additional Functions</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                        <span class="text-white font-bold">4</span>
-                                    </div>
-                                    <p class="text-lg">Provide sound leadership to headmen under the jurisdiction.</p>
-                                </div>
-                                
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                        <span class="text-white font-bold">5</span>
-                                    </div>
-                                    <p class="text-lg">Develop policies for implementation via the traditional council and COGSTA.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-6 text-orange-800">Governance & Meetings</h3>
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="text-center p-4">
-                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="font-semibold text-orange-900 mb-2">Emergency Meetings</h4>
-                                <p class="text-sm text-gray-600">Executive may call royal family meetings at any time for urgent matters</p>
-                            </div>
-                            
-                            <div class="text-center p-4">
-                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="font-semibold text-orange-900 mb-2">Record Keeping</h4>
-                                <p class="text-sm text-gray-600">Minutes kept for possible inspection by the Premier's office</p>
-                            </div>
-                            
-                            <div class="text-center p-4">
-                                <div class="w-16 h-16 bg-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="font-semibold text-orange-900 mb-2">Annual Reports</h4>
-                                <p class="text-sm text-gray-600">Full oral report to all family members at least once a year</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+    const name = document.getElementById("waName").value.trim();
+    const village = document.getElementById("waVillage").value;
+    const subject = document.getElementById("waSubject").value.trim();
+    const message = document.getElementById("waMessage").value.trim();
+
+    if (!name || !subject || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const phoneNumber = "27721089311"; // WhatsApp number
+    const text = `👑 *Mulamula Traditional Authority Inquiry*%0A
+*Name:* ${name}%0A
+*Village:* ${village || "N/A"}%0A
+*Subject:* ${subject}%0A
+*Message:* ${message}`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
+    window.open(whatsappUrl, "_blank");
+  }
+</script>
+
+        
 
 
     </main>
 
     <!-- Footer -->
-<footer class="bg-orange-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Left Section: Logo + Name -->
-            <div class="flex items-center space-x-4">
-                <img src="images/logo.png" alt="Mulamula Logo"
-                     class="w-24 h-24 object-cover rounded-2xl border-4 border-white shadow-xl brightness-110">
-                <div>
-                    <h3 class="text-2xl font-bold mb-2">Mulamula Traditional Authority</h3>
-                    <p class="text-orange-200 text-sm">
-                        Preserving tradition, serving our communities in Malamulele-West, Vhembe District, Limpopo Province.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Villages -->
-            <div>
-                <h3 class="text-xl font-bold mb-4">Our Villages</h3>
-                <ul class="space-y-2 text-orange-200">
-                    <li>Nhombelani</li>
-                    <li>Dumela</li>
-                    <li>Muswane</li>
-                    <li>Mulamula Head-Kraal</li>
-                </ul>
-            </div>
-            
-            <!-- Legal -->
-            <div>
-                <h3 class="text-xl font-bold mb-4">Legal Framework</h3>
-                <ul class="space-y-2 text-orange-200 text-sm">
-                    <li>Traditional Leadership & Governance Framework Act 41 of 2003</li>
-                    <li>Limpopo Traditional Leadership & Institutions Act 6 of 2005</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="border-t border-orange-800 mt-8 pt-8 text-center text-orange-200">
-            <p>&copy; 2024 Mulamula Royal Family. All rights reserved.</p>
-        </div>
+<!-- =========  UNIVERSAL FOOTER  ========= -->
+<footer id="universal-footer" class="bg-gradient-to-b from-orange-900 to-orange-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- 1. Logo & One-liner -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+      <img src="images/logo.png" alt="Mulamula Crest" class="w-20 h-20 rounded-2xl border-2 border-white shadow-lg object-cover">
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl font-bold">Mulamula Traditional Authority</h2>
+        <p class="text-orange-200 text-sm">Preserving heritage • Serving four villages • Since 1824</p>
+      </div>
     </div>
+
+    <!-- 2. Quick-Link Columns -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-sm">
+      <!-- Column A -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-orange-300 transition">Home</a></li>
+          <li><a href="about.html#timeline" class="hover:text-orange-300 transition">History Timeline</a></li>
+          <li><a href="about.html#succession" class="hover:text-orange-300 transition">Succession Line</a></li>
+          <li><a href="leadership.html#royal-council" class="hover:text-orange-300 transition">Royal Council</a></li>
+        </ul>
+      </div>
+
+      <!-- Column B -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html#documents" class="hover:text-orange-300 transition">Official Documents</a></li>
+          <li><a href="index.html#constitution" class="hover:text-orange-300 transition">2016 Constitution</a></li>
+          <li><a href="library.html" target="_blank" class="hover:text-orange-300 transition">Document Library</a></li>
+          <li><a href="about.html#genealogy" class="hover:text-orange-300 transition">Genealogy Tables</a></li>
+        </ul>
+      </div>
+
+      <!-- Column C -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Villages</h3>
+        <ul class="space-y-2">
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Nhombelani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Dumela</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Muswane</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Mulamula Head-Kraal</a></li>
+        </ul>
+      </div>
+
+      <!-- Column D -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="https://wa.me/27721089311" target="_blank" class="hover:text-orange-300 transition">WhatsApp Main</a></li>
+          <li><a href="contact.html#office-hours" class="hover:text-orange-300 transition">Office Hours</a></li>
+          <li><a href="contact.html#contact-forms" class="hover:text-orange-300 transition">Send a Message</a></li>
+          <li><a href="leadership.html#governance" class="hover:text-orange-300 transition">Legal Framework</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Divider & Copyright -->
+    <div class="border-t border-orange-700 pt-6 text-center text-xs text-orange-200">
+      <p>&copy; <span id="year"></span> Mulamula Royal Family. All rights reserved.</p>
+      <p class="mt-1">Content extracted from the 2016 Royal Constitution &bull; Recognised under South African Traditional Leadership Framework</p>
+    </div>
+  </div>
 </footer>
 
+<!-- tiny helper to keep the year current -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<!-- =========  END UNIVERSAL FOOTER  ========= -->
 
-    <script>
-        let currentPage = 'home';
-        let currentSlide = 0;
-        let slideInterval;
-        
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.add('hidden');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.remove('hidden');
-            document.getElementById(pageId).classList.add('fade-in');
-            
-            // Update active nav link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('text-orange-200');
-            });
-            
-            currentPage = pageId;
-            
-            // Close mobile sidebar
-            closeMobileSidebar();
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            // Refresh AOS animations for the new page
-            setTimeout(() => {
-                AOS.refresh();
-            }, 100);
-            
-            // Start/stop slider based on page
-            if (pageId === 'home') {
-                startSlider();
-            } else {
-                stopSlider();
-            }
-        }
-        
-        function openMobileSidebar() {
-            const sidebar = document.getElementById('mobileSidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            
-            sidebar.classList.add('open');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeMobileSidebar() {
-            const sidebar = document.getElementById('mobileSidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            
-            sidebar.classList.remove('open');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        function handleContactForm(event) {
-            event.preventDefault();
-            
-            // Show success message
-            document.getElementById('contactSuccess').classList.remove('hidden');
-            
-            // Reset form
-            event.target.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('contactSuccess').classList.add('hidden');
-            }, 5000);
-        }
-        
-        // Hero Slider Functions
-        function goToSlide(slideIndex) {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            
-            // Remove active class from current slide and dot
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            
-            // Update current slide
-            currentSlide = slideIndex;
-            
-            // Add active class to new slide and dot
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            const slides = document.querySelectorAll('.slide');
-            const nextIndex = (currentSlide + 1) % slides.length;
-            goToSlide(nextIndex);
-        }
-        
-        function startSlider() {
-            stopSlider(); // Clear any existing interval
-            slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-        }
-        
-        function stopSlider() {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
-            }
-        }
-        
-        // Document filtering functionality
-        function filterDocuments(category) {
-            const cards = document.querySelectorAll('.document-card');
-            const buttons = document.querySelectorAll('.doc-filter-btn');
-            
-            // Update button states
-            buttons.forEach(btn => {
-                btn.classList.remove('active', 'bg-orange-600', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-            });
-            
-            // Set active button
-            event.target.classList.remove('bg-gray-200', 'text-gray-700');
-            event.target.classList.add('active', 'bg-orange-600', 'text-white');
-            
-            // Filter cards
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                    card.classList.remove('hidden');
-                } else {
-                    card.style.display = 'none';
-                    card.classList.add('hidden');
-                }
-            });
-            
-            // Refresh AOS animations for visible cards
-            setTimeout(() => {
-                AOS.refresh();
-            }, 100);
-        }
-        
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true,
-                offset: 100
-            });
-            
-            showPage('home');
-            
-            // Add click handlers for slider dots
-            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
-                dot.addEventListener('click', () => goToSlide(index));
-            });
-            
-            // Pause slider on hover
-            const heroSlider = document.querySelector('.hero-slider');
-            if (heroSlider) {
-                heroSlider.addEventListener('mouseenter', stopSlider);
-                heroSlider.addEventListener('mouseleave', () => {
-                    if (currentPage === 'home') {
-                        startSlider();
-                    }
-                });
-            }
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ed05b9f54d738b',t:'MTc2MDUwNzI1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>
+/* =========  HERO SLIDER – CONFLICT-FREE  ========= */
+let currentSlide = 0;
+let slideInterval = null;
+
+function goToSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.slider-dot');
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+function nextSlide() { goToSlide(currentSlide + 1); }
+function startSlider() {
+  stopSlider();
+  slideInterval = setInterval(nextSlide, 5000);
+}
+function stopSlider() {
+  clearInterval(slideInterval);
+}
+
+/* =========  DOCUMENT FILTER (non-conflicting)  ========= */
+function filterDocuments(cat) {
+  document.querySelectorAll('.document-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.doc-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(cat));
+  });
+}
+
+/* =========  WHATSAPP LINK (kept)  ========= */
+function sendWhatsApp(e) {
+  e.preventDefault();
+  const name    = document.getElementById('waName').value.trim();
+  const village = document.getElementById('waVillage').value;
+  const subj    = document.getElementById('waSubject').value.trim();
+  const msg     = document.getElementById('waMessage').value.trim();
+  if(!name || !subj || !msg) return alert('Please fill in all required fields.');
+  const text = `👑 *Mulamula Traditional Authority Inquiry*%0A*Name:* ${name}%0A*Village:* ${village || 'N/A'}%0A*Subject:* ${subj}%0A*Message:* ${msg}`;
+  window.open(`https://wa.me/27721089311?text=${text}`, '_blank');
+}
+
+/* =========  BOOT-UP  ========= */
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true, offset: 100 });
+  startSlider();                       // auto-slide
+  const hero = document.querySelector('.hero-slider');
+  if (hero) {                          // pause on hover
+    hero.addEventListener('mouseenter', stopSlider);
+    hero.addEventListener('mouseleave', startSlider);
+  }
+});
+
+
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
 </html>

@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulamula Royal Council - Traditional Leadership</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Meet the members of the Mulamula Royal Council and learn about their roles in preserving Xitsonga heritage and guiding the Mulamula Traditional Authority.">
+<meta name="keywords" content="Mulamula Royal Council, Traditional Leadership, Mulamula Traditional Authority, Vhembe District, Malamulele, Limpopo, Xitsonga Heritage">
+<meta name="author" content="Mulamula Traditional Authority">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Mulamula Royal Council - Traditional Leadership">
+<meta property="og:description" content="Meet the leaders of the Mulamula Royal Family and their contributions to the community.">
+<meta property="og:image" content="images/logo.png">
+<meta property="og:url" content="https://mulamula-authority.local/royal-council">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mulamula Royal Council - Traditional Leadership">
+<meta name="twitter:description" content="Meet the leaders of the Mulamula Royal Family and their contributions to the community.">
+<meta name="twitter:image" content="images/logo.png">
+
+
+<!-- Favicon and App Links -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+
+/* kill horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+        body {
+            box-sizing: border-box;
+        }
+        
+        .traditional-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #D2691E 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .leadership-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            background: #D97706;
+            border-radius: 50%;
+            border: 4px solid #FED7AA;
+            z-index: 2;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 2rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: #FED7AA;
+            z-index: 1;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-regent::before {
+            background: #059669;
+            border-color: #A7F3D0;
+        }
+        
+        .timeline-regent::after {
+            background: #A7F3D0;
+        }
+        
+        .timeline-acting::before {
+            background: #7C3AED;
+            border-color: #DDD6FE;
+        }
+        
+        .timeline-acting::after {
+            background: #DDD6FE;
+        }
+        
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .org-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .org-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: #D97706;
+        }
+        
+        .org-card.top-level::before {
+            display: none;
+        }
+        
+        .crown-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 24px;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .badge-chief {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        
+        .badge-council {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+        
+        .badge-additional {
+            background: #F3E8FF;
+            color: #7C3AED;
+        }
+    </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-orange-50 text-gray-800"><!-- Navigation -->
+  
+
+<!-- =========  MOBILE SIDEBAR  ========= -->
+<div id="sidebarOverlay"
+     class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-opacity"
+     onclick="closeMobileSidebar()"></div>
+
+<aside id="mobileSidebar"
+       class="fixed top-0 left-0 w-[300px] h-full
+              bg-gradient-to-b from-orange-900 to-orange-800 text-white
+              shadow-2xl z-50 -translate-x-full transition-transform duration-300
+              overflow-y-auto">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-8 border-b border-orange-700 pb-4">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
+        <h2 class="text-2xl font-bold">Menu</h2>
+      </div>
+      <button onclick="closeMobileSidebar()"
+              class="text-white hover:text-orange-300 transition-transform hover:rotate-90">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-4">
+      <a href="index.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Home</a>
+      <a href="about.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">About & History</a>
+      <a href="leadership.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Leadership</a>
+<a href="#royal-council" onclick="closeMobileSidebar(); scrollToSection('royal-council')" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Royal Council</a>
+<a href="#succession" onclick="closeMobileSidebar(); scrollToSection('succession')" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Succession Line</a>
+<a href="#governance" onclick="closeMobileSidebar(); scrollToSection('governance')" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Governance</a>
+
+      <a href="contact.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Contact</a>
+    </nav>
+  </div>
+</aside>
+<!-- =========  END MOBILE SIDEBAR  ========= -->
+
+<!-- =========  DESKTOP NAV  ========= -->
+<nav id="mainNav"
+     class="bg-orange-900 text-white shadow-lg sticky top-0 z-40 transition-transform duration-300">
+
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- logo / title -->
+      <a href="index.html" class="flex items-center space-x-4">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-16 h-16 object-contain rounded-full border-4 border-white
+                    shadow-lg brightness-110 hover:scale-105 transition-transform">
+        <div>
+          <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
+          <p class="text-orange-200 text-sm">Leadership Structure</p>
+        </div>
+      </a>
+
+      <!-- desktop links -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-orange-200 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-orange-200 transition-colors">About & History</a>
+        <a href="leadership.html" class="hover:text-orange-200 transition-colors">Leadership</a>
+        <a href="#royal-council" onclick="scrollToSection('royal-council')" class="hover:text-orange-200 transition-colors">Royal Council</a>
+<a href="#succession" onclick="scrollToSection('succession')" class="hover:text-orange-200 transition-colors">Succession</a>
+<a href="#governance" onclick="scrollToSection('governance')" class="hover:text-orange-200 transition-colors">Governance</a>
+        <a href="contact.html" class="hover:text-orange-200 transition-colors">Contact</a>
+      </div>
+
+      <!-- burger -->
+      <button onclick="openMobileSidebar()" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- =========  END DESKTOP NAV  ========= -->
+
+<script>
+/* ---------- sidebar open/close ---------- */
+let mobileSidebarOpen = false;
+function openMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.remove('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.remove('opacity-0', 'invisible');
+  document.body.style.overflow = 'hidden';
+  mobileSidebarOpen = true;
+}
+function closeMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.add('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.add('opacity-0', 'invisible');
+  document.body.style.overflow = '';
+  mobileSidebarOpen = false;
+}
+
+/* ---------- smart-hide nav on scroll ---------- */
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+  nav.classList.remove('translate-y-0','-translate-y-full');
+  nav.style.transition = 'transform 280ms ease, opacity 280ms ease';
+  nav.style.transform = 'translateY(0)';
+  let lastY = window.scrollY || 0, ticking = false;
+  const MIN_DELTA = 6, HIDE_AFTER = 90;
+  function update(){
+    const currentY = window.scrollY || 0;
+    if (mobileSidebarOpen){ ticking = false; return; }
+    const delta = currentY - lastY;
+    if (Math.abs(delta) < MIN_DELTA){ ticking = false; return; }
+    if (delta > 0 && currentY > HIDE_AFTER){
+      nav.style.transform = 'translateY(-110%)';
+      nav.style.opacity = '0.98';
+    } else if (delta < 0){
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+    }
+    lastY = currentY; ticking = false;
+  }
+  window.addEventListener('scroll',()=>{
+    if (!ticking){ ticking = true; requestAnimationFrame(update); }
+  },{passive:true});
+  document.addEventListener('DOMContentLoaded',()=>{
+    nav.style.transform = 'translateY(0)'; nav.style.opacity = '1';
+  });
+})();
+</script>
+
+
+  <section class="parallax-bg py-20" style="background-image: url('images/hero1.jpg');">
+   <div class="bg-black bg-opacity-60 py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+     <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white" data-aos="fade-up">Traditional Leadership</h1>
+     <p class="text-xl text-white max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">Current governance structure and leadership hierarchy of the Mulamula Traditional Authority</p>
+    </div>
+   </div>
+  </section><!-- Current Leadership Overview -->
+  <section id="current-leadership" class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Current Leadership Structure</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">The Mulamula Traditional Authority operates under a structured governance system combining traditional customs with modern administrative requirements</p>
+    </div><!-- Acting Senior Traditional Leader -->
+<div class="mb-16" data-aos="fade-up" data-aos-delay="200">
+  <div class="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 rounded-lg shadow-lg border-2 border-orange-300">
+    <div class="text-center">
+      <!-- Elephant Icon -->
+      <div class="crown-icon mx-auto mb-4">
+        <img src="images/elephant.png" alt="Elephant icon" class="mx-auto" style="width: 150px; height: auto;">
+      </div>
+
+      <h3 class="text-3xl font-bold text-orange-900 mb-2">Hosi Desmond Maluleke</h3>
+      <p class="text-orange-700 font-semibold text-lg mb-2">Acting Senior Traditional Leader</p>
+      <div class="role-badge badge-chief">
+        Current Leader (2021 - Present)
+      </div>
+
+      <div class="mt-6 max-w-2xl mx-auto">
+        <p class="text-gray-700 leading-relaxed">
+          Currently serving as Acting Senior Traditional Leader, recognized by COGHSTA (Cooperative Governance, Human Settlements and Traditional Affairs). Leading the traditional authority through modern challenges while preserving cultural heritage and traditional governance practices.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div><!-- Leadership Statistics -->
+    <div class="grid md:grid-cols-4 gap-8 mb-16">
+     <div class="text-center p-6 bg-white rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-4xl font-bold text-orange-600 mb-2">
+       150+
+      </div>
+      <div class="text-lg font-semibold text-orange-900 mb-2">
+       Years
+      </div>
+      <div class="text-sm text-gray-600">
+       Continuous Leadership
+      </div>
+     </div>
+     <div class="text-center p-6 bg-white rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="text-4xl font-bold text-blue-600 mb-2">
+       4
+      </div>
+      <div class="text-lg font-semibold text-blue-900 mb-2">
+       Villages
+      </div>
+      <div class="text-sm text-gray-600">
+       Under Authority
+      </div>
+     </div>
+     <div class="text-center p-6 bg-white rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="text-4xl font-bold text-green-600 mb-2">
+       9
+      </div>
+      <div class="text-lg font-semibold text-green-900 mb-2">
+       Council
+      </div>
+      <div class="text-sm text-gray-600">
+       Members
+      </div>
+     </div>
+     <div class="text-center p-6 bg-white rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="text-4xl font-bold text-purple-600 mb-2">
+       6
+      </div>
+      <div class="text-lg font-semibold text-purple-900 mb-2">
+       Generations
+      </div>
+      <div class="text-sm text-gray-600">
+       Succession Line
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Royal Council Structure -->
+  <section id="royal-council" class="py-16 bg-gray-50">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Mulamula Royal Council</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">The Royal Council serves as the governing body, providing administrative support and traditional governance oversight</p>
+    </div><!-- Council Group Photo -->
+    <div class="mb-12" data-aos="fade-up" data-aos-delay="150">
+     <div class="bg-white p-8 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold text-center text-orange-900 mb-6">Mulamula Royal Council Members</h3>
+      <div class="flex justify-center"><img src="images/hero1.jpg" alt="Mulamula Royal Council Members - Official Group Photo" class="rounded-lg shadow-lg max-w-full h-auto" onerror="this.src=''; this.alt='Council group photo unavailable'; this.style.display='none';">
+      </div>
+      <p class="text-center text-gray-600 mt-4 text-sm">The Mulamula Royal Council in official session - Leading with traditional wisdom and modern governance</p>
+     </div>
+    </div><!-- Organizational Chart -->
+    <div class="org-chart" data-aos="fade-up" data-aos-delay="200"><!-- Top Level: Ex-Officio -->
+     <div class="org-level">
+      <div class="org-card top-level bg-gradient-to-br from-orange-100 to-yellow-100 border-2 border-orange-400">
+       <div class="crown-icon text-white">
+        👑
+       </div>
+       <h3 class="text-xl font-bold text-orange-900 mb-2">Ex-Officio Hosi Desmond Maluleke</h3>
+       <p class="text-orange-700 font-semibold">Acting Senior Traditional Leader</p>
+       <div class="role-badge badge-chief">
+        Head of Council
+       </div>
+      </div>
+     </div><!-- Second Level: Core Officers -->
+     <div class="org-level">
+      <div class="org-card bg-blue-50 border-l-4 border-blue-500">
+       <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        1
+       </div>
+       <h4 class="text-lg font-bold text-blue-900 mb-1">Chairperson</h4>
+       <p class="text-blue-700 font-semibold">Mr. Maluleke Abel</p>
+       <div class="role-badge badge-council">
+        Executive
+       </div>
+      </div>
+      <div class="org-card bg-green-50 border-l-4 border-green-500">
+       <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        2
+       </div>
+       <h4 class="text-lg font-bold text-green-900 mb-1">Deputy Chairperson</h4>
+       <p class="text-green-700 font-semibold">Maluleke Audience Simon</p>
+       <div class="role-badge badge-council">
+        Executive
+       </div>
+      </div>
+     </div><!-- Third Level: Administrative Officers -->
+     <div class="org-level">
+      <div class="org-card bg-purple-50 border-l-4 border-purple-500">
+       <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        3
+       </div>
+       <h4 class="text-lg font-bold text-purple-900 mb-1">Secretary</h4>
+       <p class="text-purple-700 font-semibold">Mr Maluleke Khazamula Robert</p>
+       <div class="role-badge badge-council">
+        Administrative
+       </div>
+      </div>
+      <div class="org-card bg-indigo-50 border-l-4 border-indigo-500">
+       <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        4
+       </div>
+       <h4 class="text-lg font-bold text-indigo-900 mb-1">Deputy Secretary</h4>
+       <p class="text-indigo-700 font-semibold">Mr Maluleke M Elias</p>
+       <div class="role-badge badge-council">
+        Administrative
+       </div>
+      </div>
+      <div class="org-card bg-yellow-50 border-l-4 border-yellow-500">
+       <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        5
+       </div>
+       <h4 class="text-lg font-bold text-yellow-900 mb-1">Treasury</h4>
+       <p class="text-yellow-700 font-semibold">Mr Maluleke Mdunwazi Eric</p>
+       <div class="role-badge badge-council">
+        Financial
+       </div>
+      </div>
+     </div><!-- Fourth Level: Additional Members -->
+     <div class="org-level">
+      <div class="org-card bg-red-50 border-l-4 border-red-500">
+       <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        6
+       </div>
+       <h4 class="text-lg font-bold text-red-900 mb-1">Council Member</h4>
+       <p class="text-red-700 font-semibold">Dr. Maluleke Mkateko Raymond</p>
+       <div class="role-badge badge-additional">
+        Advisory
+       </div>
+      </div>
+      <div class="org-card bg-teal-50 border-l-4 border-teal-500">
+       <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        7
+       </div>
+       <h4 class="text-lg font-bold text-teal-900 mb-1">Council Member</h4>
+       <p class="text-teal-700 font-semibold">Mr. Maluleke Dayson</p>
+       <div class="role-badge badge-additional">
+        Advisory
+       </div>
+      </div>
+      <div class="org-card bg-pink-50 border-l-4 border-pink-500">
+       <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        8
+       </div>
+       <h4 class="text-lg font-bold text-pink-900 mb-1">Additional Member</h4>
+       <p class="text-pink-700 font-semibold">Cedric Mafemani Maluleke</p>
+       <div class="role-badge badge-additional">
+        Community Rep
+       </div>
+      </div>
+      <div class="org-card bg-cyan-50 border-l-4 border-cyan-500">
+       <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
+        9
+       </div>
+       <h4 class="text-lg font-bold text-cyan-900 mb-1">Additional Member</h4>
+       <p class="text-cyan-700 font-semibold">Enny Vukeya</p>
+       <div class="role-badge badge-additional">
+        Community Rep
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Succession Line -->
+  <section id="succession" class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Royal Succession Line</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">The traditional succession follows male primogeniture from the founder Chavane "Mulamula" Maluleke through his first-born son's lineage</p>
+    </div>
+    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+     <div class="space-y-0"><!-- Current Heir -->
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+       <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-2 border-orange-300">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-orange-900">Walter</h3>
+          <p class="text-orange-700 font-semibold">Current Heir to the Throne</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-orange-800">6th Generation</span>
+          <p class="text-sm text-gray-600">First-born son of George</p>
+         </div>
+        </div>
+        <p class="text-gray-700 mb-4">The rightful heir according to traditional succession laws, representing the sixth generation in the direct male primogeniture line from the founder.</p>
+        <div class="text-sm text-gray-600"><strong>Status:</strong> Alive | <strong>Lineage:</strong> Great-great-grandson of Chief Photani Jim Mkhacani Maluleke
+        </div>
+       </div>
+      </div><!-- George -->
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+       <div class="bg-indigo-50 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-indigo-900">George Mkhacani Maluleke</h3>
+          <p class="text-indigo-700 font-semibold">Father of Current Heir</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-indigo-800">Born 1962</span>
+          <p class="text-sm text-gray-600">5th Generation</p>
+         </div>
+        </div>
+        <p class="text-gray-700">Son of Samuel Maluleke, continuing the succession line established by his ancestors.</p>
+       </div>
+      </div><!-- Samuel -->
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+       <div class="bg-purple-50 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-purple-900">Samuel Maluleke</h3>
+          <p class="text-purple-700 font-semibold">4th Generation</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-purple-800">1933 - 1968</span>
+          <p class="text-sm text-gray-600">Son of Gezani Johannes</p>
+         </div>
+        </div>
+        <p class="text-gray-700">Continued the succession line during the mid-20th century, father of George Mkhacani Maluleke.</p>
+       </div>
+      </div><!-- Gezani -->
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+       <div class="bg-green-50 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-green-900">Gezani Johannes Maluleke</h3>
+          <p class="text-green-700 font-semibold">3rd Generation</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-green-800">Born 1907</span>
+          <p class="text-sm text-gray-600">Son of Chief Photani</p>
+         </div>
+        </div>
+        <p class="text-gray-700">Son of the renowned Chief Photani Jim Mkhacani Maluleke, maintaining the royal bloodline.</p>
+       </div>
+      </div><!-- Photani -->
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+       <div class="bg-orange-50 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-orange-900">Photani Jim Mkhacani Maluleke</h3>
+          <p class="text-orange-700 font-semibold">Traditional Chief</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-orange-800">1874 - 1947</span>
+          <p class="text-sm text-gray-600">Chief: 1928-1929, 1933-1947</p>
+         </div>
+        </div>
+        <p class="text-gray-700">The most celebrated chief in Mulamula history, serving 15 years total and establishing strong traditional governance foundations.</p>
+       </div>
+      </div><!-- Mbayimbayi -->
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="600">
+       <div class="bg-blue-50 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+         <div>
+          <h3 class="text-2xl font-bold text-blue-900">Mbayimbayi Maluleke</h3>
+          <p class="text-blue-700 font-semibold">Succession Line Founder</p>
+         </div>
+         <div class="text-right"><span class="text-xl font-bold text-blue-800">1856 - 1918</span>
+          <p class="text-sm text-gray-600">First-born of Principal Wife</p>
+         </div>
+        </div>
+        <p class="text-gray-700">First-born son of Chavane "Mulamula" Maluleke by his principal wife Nwa-Khwenu, establishing the succession line that continues today.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Governance Framework -->
+  <section id="governance" class="py-16 bg-gray-50">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Governance Framework</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our traditional authority operates within South African legal frameworks while maintaining cultural authenticity</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12"><!-- Traditional Functions -->
+     <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right" data-aos-delay="200">
+      <h3 class="text-2xl font-bold text-orange-900 mb-6">Traditional Functions</h3>
+      <ul class="space-y-4">
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         1
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Cultural Preservation</h4>
+         <p class="text-gray-600 text-sm">Maintaining traditional customs, ceremonies, and cultural practices</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         2
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Dispute Resolution</h4>
+         <p class="text-gray-600 text-sm">Traditional court proceedings and community conflict mediation</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         3
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Land Administration</h4>
+         <p class="text-gray-600 text-sm">Overseeing traditional land use and allocation within customary law</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         4
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Community Leadership</h4>
+         <p class="text-gray-600 text-sm">Providing guidance and leadership to the four villages under our authority</p>
+        </div></li>
+      </ul>
+     </div><!-- Modern Administrative Functions -->
+     <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="300">
+      <h3 class="text-2xl font-bold text-orange-900 mb-6">Administrative Functions</h3>
+      <ul class="space-y-4">
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         1
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Government Liaison</h4>
+         <p class="text-gray-600 text-sm">Interface with COGHSTA and other government departments</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         2
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Development Planning</h4>
+         <p class="text-gray-600 text-sm">Community development initiatives and infrastructure planning</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         3
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Financial Management</h4>
+         <p class="text-gray-600 text-sm">Budget oversight and resource allocation for community projects</p>
+        </div></li>
+       <li class="flex items-start space-x-3">
+        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold mt-0.5">
+         4
+        </div>
+        <div>
+         <h4 class="font-semibold text-gray-800">Record Keeping</h4>
+         <p class="text-gray-600 text-sm">Maintaining official documentation and genealogical records</p>
+        </div></li>
+      </ul>
+     </div>
+    </div><!-- Legal Framework -->
+    <div class="mt-12 p-8 bg-white rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+     <h3 class="text-2xl font-bold text-orange-900 mb-6 text-center">Legal Framework</h3>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div>
+       <h4 class="font-semibold text-orange-800 mb-4">National Legislation:</h4>
+       <ul class="space-y-2 text-gray-700">
+        <li>• Traditional Leadership &amp; Governance Framework Act 41 of 2003</li>
+        <li>• Constitution of the Republic of South Africa, 1996</li>
+        <li>• Communal Land Rights Act 11 of 2004</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-orange-800 mb-4">Provincial Legislation:</h4>
+       <ul class="space-y-2 text-gray-700">
+        <li>• Limpopo Traditional Leadership &amp; Institutions Act 6 of 2005</li>
+        <li>• Limpopo House of Traditional Leaders Act 5 of 2005</li>
+        <li>• Provincial recognition and support frameworks</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Villages Under Authority -->
+  <section class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Villages Under Our Authority</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Four traditional villages fall under the jurisdiction of the Mulamula Traditional Authority</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="text-center p-6 bg-orange-50 rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+       🏘️
+      </div>
+      <h3 class="text-xl font-bold text-orange-900 mb-2">Nhombelani</h3>
+      <p class="text-gray-600 text-sm">Traditional village under Mulamula authority</p>
+     </div>
+     <div class="text-center p-6 bg-blue-50 rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+       🏘️
+      </div>
+      <h3 class="text-xl font-bold text-blue-900 mb-2">Dumela</h3>
+      <p class="text-gray-600 text-sm">Named after regent Dumela Maselesele Maluleke</p>
+     </div>
+     <div class="text-center p-6 bg-green-50 rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+       🏘️
+      </div>
+      <h3 class="text-xl font-bold text-green-900 mb-2">Muswane</h3>
+      <p class="text-gray-600 text-sm">Traditional village community</p>
+     </div>
+     <div class="text-center p-6 bg-purple-50 rounded-lg shadow-lg leadership-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+       👑
+      </div>
+      <h3 class="text-xl font-bold text-purple-900 mb-2">Mulamula Head-Kraal</h3>
+      <p class="text-gray-600 text-sm">Central seat of traditional authority</p>
+     </div>
+    </div>
+   </div>
+  </section>
+
+<!-- =========  UNIVERSAL FOOTER  ========= -->
+<footer id="universal-footer" class="bg-gradient-to-b from-orange-900 to-orange-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- 1. Logo & One-liner -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+      <img src="images/logo.png" alt="Mulamula Crest" class="w-20 h-20 rounded-2xl border-2 border-white shadow-lg object-cover">
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl font-bold">Mulamula Traditional Authority</h2>
+        <p class="text-orange-200 text-sm">Preserving heritage • Serving four villages • Since 1824</p>
+      </div>
+    </div>
+
+    <!-- 2. Quick-Link Columns -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-sm">
+      <!-- Column A -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-orange-300 transition">Home</a></li>
+          <li><a href="about.html#timeline" class="hover:text-orange-300 transition">History Timeline</a></li>
+          <li><a href="about.html#succession" class="hover:text-orange-300 transition">Succession Line</a></li>
+          <li><a href="leadership.html#royal-council" class="hover:text-orange-300 transition">Royal Council</a></li>
+        </ul>
+      </div>
+
+      <!-- Column B -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html#documents" class="hover:text-orange-300 transition">Official Documents</a></li>
+          <li><a href="index.html#constitution" class="hover:text-orange-300 transition">2016 Constitution</a></li>
+          <li><a href="library.html" target="_blank" class="hover:text-orange-300 transition">Document Library</a></li>
+          <li><a href="about.html#genealogy" class="hover:text-orange-300 transition">Genealogy Tables</a></li>
+        </ul>
+      </div>
+
+      <!-- Column C -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Villages</h3>
+        <ul class="space-y-2">
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Nhombelani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Dumela</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Muswane</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Mulamula Head-Kraal</a></li>
+        </ul>
+      </div>
+
+      <!-- Column D -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="https://wa.me/27721089311" target="_blank" class="hover:text-orange-300 transition">WhatsApp Main</a></li>
+          <li><a href="contact.html#office-hours" class="hover:text-orange-300 transition">Office Hours</a></li>
+          <li><a href="contact.html#contact-forms" class="hover:text-orange-300 transition">Send a Message</a></li>
+          <li><a href="leadership.html#governance" class="hover:text-orange-300 transition">Legal Framework</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Divider & Copyright -->
+    <div class="border-t border-orange-700 pt-6 text-center text-xs text-orange-200">
+      <p>&copy; <span id="year"></span> Mulamula Royal Family. All rights reserved.</p>
+      <p class="mt-1">Content extracted from the 2016 Royal Constitution &bull; Recognised under South African Traditional Leadership Framework</p>
+    </div>
+  </div>
+</footer>
+
+<!-- tiny helper to keep the year current -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<!-- =========  END UNIVERSAL FOOTER  ========= -->
+
+
+  <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 100
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f20c806425738b',t:'MTc2MDU1OTk1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
