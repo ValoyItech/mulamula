@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Information - Mulamula Traditional Authority</title>
+  <!-- SEO Meta Tags -->
+<meta name="description" content="Stay updated with the latest news, announcements, and developments from the Mulamula Traditional Authority and surrounding villages in Limpopo.">
+<meta name="keywords" content="Mulamula News, Limpopo News, Village Updates, Traditional Authority Announcements, Community News">
+<meta name="author" content="Mulamula Traditional Authority">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (Facebook, WhatsApp, etc.) -->
+<meta property="og:title" content="Mulamula News - Mulamula Traditional Authority">
+<meta property="og:description" content="Get the latest news, updates, and official announcements from the Mulamula Traditional Authority and its communities.">
+<meta property="og:image" content="images/logo.png">
+<meta property="og:url" content="https://mulamula-authority.local/news">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mulamula News - Mulamula Traditional Authority">
+<meta name="twitter:description" content="Catch up on the latest developments, news, and announcements from the Mulamula villages in Limpopo.">
+<meta name="twitter:image" content="images/logo.png">
+
+<!-- Favicon and App Links -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+
+    /* kill horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+        body {
+            box-sizing: border-box;
+        }
+        
+        .traditional-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #D2691E 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .village-card {
+            transition: all 0.3s ease;
+            border-left: 6px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .village-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .village-card.magangeni {
+            border-left-color: #DC2626;
+        }
+        
+        .village-card.bulwini {
+            border-left-color: #2563EB;
+        }
+        
+        .village-card.maveke {
+            border-left-color: #16A34A;
+        }
+        
+        .village-card.muswane {
+            border-left-color: #7C3AED;
+        }
+        
+        .village-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .school-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        
+        .school-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .facility-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #D97706;
+        }
+        
+        .village-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interactive-map {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-village {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .map-village:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+        
+        .map-village.magangeni {
+            background: #DC2626;
+            color: white;
+            top: 20%;
+            left: 30%;
+        }
+        
+        .map-village.bulwini {
+            background: #2563EB;
+            color: white;
+            top: 40%;
+            right: 25%;
+        }
+        
+        .map-village.maveke {
+            background: #16A34A;
+            color: white;
+            bottom: 30%;
+            left: 20%;
+        }
+        
+        .map-village.muswane {
+            background: #7C3AED;
+            color: white;
+            bottom: 20%;
+            right: 30%;
+        }
+        
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #D97706;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #D97706;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-orange-50 text-gray-800"><!-- Navigation -->
+  
+<!-- =========  MOBILE SIDEBAR  ========= -->
+<div id="sidebarOverlay"
+     class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-opacity"
+     onclick="closeMobileSidebar()"></div>
+
+<aside id="mobileSidebar"
+       class="fixed top-0 left-0 w-[300px] h-full
+              bg-gradient-to-b from-orange-900 to-orange-800 text-white
+              shadow-2xl z-50 -translate-x-full transition-transform duration-300
+              overflow-y-auto">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-8 border-b border-orange-700 pb-4">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
+        <h2 class="text-2xl font-bold">Menu</h2>
+      </div>
+      <button onclick="closeMobileSidebar()"
+              class="text-white hover:text-orange-300 transition-transform hover:rotate-90">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-4">
+      <a href="index.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Home</a>
+      <a href="about.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">About & History</a>
+      <a href="leadership.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Leadership</a>
+      <a href="community.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Community</a>
+      <a href="contact.html"
+         class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600
+                transition-colors shadow">Contact</a>
+    </nav>
+  </div>
+</aside>
+<!-- =========  END MOBILE SIDEBAR  ========= -->
+
+<!-- =========  DESKTOP NAV  ========= -->
+<nav id="mainNav"
+     class="bg-orange-900 text-white shadow-lg sticky top-0 z-40 transition-transform duration-300">
+
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- logo / title -->
+      <a href="index.html" class="flex items-center space-x-4">
+        <img src="images/logo.png" alt="Mulamula Logo"
+             class="w-16 h-16 object-contain rounded-full border-4 border-white
+                    shadow-lg brightness-110 hover:scale-105 transition-transform">
+        <div>
+          <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
+          <p class="text-orange-200 text-sm">Community Information</p>
+        </div>
+      </a>
+
+      <!-- desktop links -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-orange-200 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-orange-200 transition-colors">About & History</a>
+        <a href="leadership.html" class="hover:text-orange-200 transition-colors">Leadership</a>
+        <a href="community.html" class="hover:text-orange-200 transition-colors">Community</a>
+        <a href="contact.html" class="hover:text-orange-200 transition-colors">Contact</a>
+      </div>
+
+      <!-- burger -->
+      <button onclick="openMobileSidebar()" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- =========  END DESKTOP NAV  ========= -->
+
+<script>
+/* ---------- sidebar open/close ---------- */
+let mobileSidebarOpen = false;
+function openMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.remove('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.remove('opacity-0', 'invisible');
+  document.body.style.overflow = 'hidden';
+  mobileSidebarOpen = true;
+}
+function closeMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.add('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.add('opacity-0', 'invisible');
+  document.body.style.overflow = '';
+  mobileSidebarOpen = false;
+}
+
+/* ---------- smart-hide nav on scroll ---------- */
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+  nav.classList.remove('translate-y-0','-translate-y-full');
+  nav.style.transition = 'transform 280ms ease, opacity 280ms ease';
+  nav.style.transform = 'translateY(0)';
+  let lastY = window.scrollY || 0, ticking = false;
+  const MIN_DELTA = 6, HIDE_AFTER = 90;
+  function update(){
+    const currentY = window.scrollY || 0;
+    if (mobileSidebarOpen){ ticking = false; return; }
+    const delta = currentY - lastY;
+    if (Math.abs(delta) < MIN_DELTA){ ticking = false; return; }
+    if (delta > 0 && currentY > HIDE_AFTER){
+      nav.style.transform = 'translateY(-110%)';
+      nav.style.opacity = '0.98';
+    } else if (delta < 0){
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+    }
+    lastY = currentY; ticking = false;
+  }
+  window.addEventListener('scroll',()=>{
+    if (!ticking){ ticking = true; requestAnimationFrame(update); }
+  },{passive:true});
+  document.addEventListener('DOMContentLoaded',()=>{
+    nav.style.transform = 'translateY(0)'; nav.style.opacity = '1';
+  });
+})();
+</script>
+
+  <section class="parallax-bg py-20" style="background-image: url('images/kinglion.jpg');">
+   <div class="bg-black bg-opacity-60 py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+     <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white" data-aos="fade-up">Our Community</h1>
+     <p class="text-xl text-white max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="200">Discover the four vibrant villages that make up Mulamula Traditional Authority - Magangeni, Bulwini, Maveke, and Muswane</p><!-- Interactive Village Map -->
+     <div class="interactive-map max-w-4xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">Interactive Village Map</h3>
+      <div class="relative h-80 rounded-xl border border-orange-200 shadow-inner bg-cover bg-center"
+     style="background-image: url('images/map.jpg');">
+       <div class="map-village magangeni" data-village="magangeni" title="Magangeni (Mbhayimbhayi)"><i class="fas fa-home"></i>
+       </div>
+       <div class="map-village bulwini" data-village="bulwini" title="Bulwini (Dumela)"><i class="fas fa-landmark"></i>
+       </div>
+       <div class="map-village maveke" data-village="maveke" title="Maveke (Nhombelani)"><i class="fas fa-tree"></i>
+       </div>
+       <div class="map-village muswane" data-village="muswane" title="Muswane (Muswani)"><i class="fas fa-seedling"></i>
+       </div><!-- Central Authority Marker -->
+       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg"><i class="fas fa-crown"></i>
+        </div>
+        <p class="text-center mt-2 font-bold text-gray-800">Traditional Authority</p>
+       </div>
+      </div>
+      <p class="text-gray-600 mt-4">Click on any village to learn more about it</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Community Statistics -->
+  <section id="community-stats" class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Community at a Glance</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Key statistics and facts about our thriving community</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-8">
+     <div class="text-center p-6 bg-red-50 rounded-lg border-2 border-red-200" data-aos="fade-up" data-aos-delay="100">
+      <div class="stats-counter text-red-600">
+       4
+      </div>
+      <h3 class="text-xl font-bold text-red-900 mb-2">Villages</h3>
+      <p class="text-gray-600">Magangeni, Bulwini, Maveke &amp; Muswane</p>
+     </div>
+     <div class="text-center p-6 bg-blue-50 rounded-lg border-2 border-blue-200" data-aos="fade-up" data-aos-delay="200">
+      <div class="stats-counter text-blue-600">
+       8
+      </div>
+      <h3 class="text-xl font-bold text-blue-900 mb-2">Schools</h3>
+      <p class="text-gray-600">4 High Schools &amp; 4 Primary Schools</p>
+     </div>
+     <div class="text-center p-6 bg-green-50 rounded-lg border-2 border-green-200" data-aos="fade-up" data-aos-delay="300">
+      <div class="stats-counter text-green-600">
+       18
+      </div>
+      <h3 class="text-xl font-bold text-green-900 mb-2">Villages Served</h3>
+      <p class="text-gray-600">By Mulamula Satellite Police Station</p>
+     </div>
+     <div class="text-center p-6 bg-purple-50 rounded-lg border-2 border-purple-200" data-aos="fade-up" data-aos-delay="400">
+      <div class="stats-counter text-purple-600">
+       1
+      </div>
+      <h3 class="text-xl font-bold text-purple-900 mb-2">Community Library</h3>
+      <p class="text-gray-600">Serving educational needs</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Villages Overview -->
+  <section id="villages-overview" class="py-16 bg-gray-50">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Our Four Villages</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Each village has its unique character and contributes to the rich tapestry of our traditional authority</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8"><!-- Magangeni Village -->
+     <div class="village-card magangeni bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex items-center mb-6">
+       <div class="village-icon bg-red-500 text-white mr-4">
+        <i class="fas fa-home"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-red-900">Magangeni</h3>
+        <p class="text-red-600 font-semibold">(Mbhayimbhayi)</p>
+       </div>
+      </div>
+      <div class="mb-6">
+       <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-school mr-2 text-red-600"></i> Educational Institutions</h4>
+       <div class="space-y-2">
+        <div class="school-item bg-red-50 border-l-4 border-red-500">
+         <p class="font-semibold text-red-900">Photani High School</p>
+         <p class="text-sm text-gray-600">Secondary Education</p>
+        </div>
+        <div class="school-item bg-red-50 border-l-4 border-red-500">
+         <p class="font-semibold text-red-900">Chanyela Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+        <div class="school-item bg-red-50 border-l-4 border-red-500">
+         <p class="font-semibold text-red-900">Mahlefunye Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-red-50 p-4 rounded-lg">
+       <h4 class="font-bold text-red-900 mb-2 flex items-center"><i class="fas fa-shield-alt mr-2"></i> Special Facility</h4>
+       <p class="text-sm text-gray-700"><strong>Mulamula Satellite Police Station</strong> - Serving 18 villages in the Malamulele West region</p>
+      </div>
+     </div><!-- Bulwini Village -->
+     <div class="village-card bulwini bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+      <div class="flex items-center mb-6">
+       <div class="village-icon bg-blue-500 text-white mr-4">
+        <i class="fas fa-landmark"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-blue-900">Bulwini</h3>
+        <p class="text-blue-600 font-semibold">(Dumela)</p>
+       </div>
+      </div>
+      <div class="mb-6">
+       <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-school mr-2 text-red-600"></i> Educational Institutions</h4>
+       <div class="space-y-2">
+        <div class="school-item bg-blue-50 border-l-4 border-blue-500">
+         <p class="font-semibold text-blue-900">Jim Yingwani High School</p>
+         <p class="text-sm text-gray-600">Secondary Education</p>
+        </div>
+        <div class="school-item bg-blue-50 border-l-4 border-blue-500">
+         <p class="font-semibold text-blue-900">Mulamula Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+        <div class="school-item bg-blue-50 border-l-4 border-blue-500">
+         <p class="font-semibold text-blue-900">Mzamani Thomas Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-blue-50 p-4 rounded-lg">
+       <h4 class="font-bold text-blue-900 mb-2 flex items-center"><i class="fas fa-building mr-2"></i> Administrative Hub</h4>
+       <p class="text-sm text-gray-700"><strong>Mulamula Tribal Office</strong> - Main administrative center with Home Affairs and Social Development services</p>
+      </div>
+     </div><!-- Maveke Village -->
+     <div class="village-card maveke bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+      <div class="flex items-center mb-6">
+       <div class="village-icon bg-green-500 text-white mr-4">
+        <i class="fas fa-tree"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-green-900">Maveke</h3>
+        <p class="text-green-600 font-semibold">(Nhombelani)</p>
+       </div>
+      </div>
+      <div class="mb-6">
+       <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-school mr-2 text-red-600"></i> Educational Institutions</h4>
+       <div class="space-y-2">
+        <div class="school-item bg-green-50 border-l-4 border-green-500">
+         <p class="font-semibold text-green-900">Rhabela High School</p>
+         <p class="text-sm text-gray-600">Secondary Education</p>
+        </div>
+        <div class="school-item bg-green-50 border-l-4 border-green-500">
+         <p class="font-semibold text-green-900">Nhombelani Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-green-50 p-4 rounded-lg">
+       <h4 class="font-bold text-green-900 mb-2 flex items-center"><i class="fas fa-leaf mr-2"></i> Village Character</h4>
+       <p class="text-sm text-gray-700">Known for its natural beauty and strong educational foundation with quality schools serving the community</p>
+      </div>
+     </div><!-- Muswane Village -->
+     <div class="village-card muswane bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex items-center mb-6">
+       <div class="village-icon bg-purple-500 text-white mr-4">
+        <i class="fas fa-seedling"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-purple-900">Muswane</h3>
+        <p class="text-purple-600 font-semibold">(Muswani)</p>
+       </div>
+      </div>
+      <div class="mb-6">
+       <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-school mr-2 text-red-600"></i> Educational Institutions</h4>
+       <div class="space-y-2">
+        <div class="school-item bg-purple-50 border-l-4 border-purple-500">
+         <p class="font-semibold text-purple-900">Frans Sombhani High School</p>
+         <p class="text-sm text-gray-600">Secondary Education</p>
+        </div>
+        <div class="school-item bg-purple-50 border-l-4 border-purple-500">
+         <p class="font-semibold text-purple-900">Muswani Primary School</p>
+         <p class="text-sm text-gray-600">Primary Education</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-purple-50 p-4 rounded-lg">
+       <h4 class="font-bold text-purple-900 mb-2 flex items-center"><i class="fas fa-tractor mr-2"></i> Agricultural Heritage</h4>
+       <p class="text-sm text-gray-700">Rich agricultural traditions with strong community bonds and excellent educational facilities</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Schools & Education -->
+  <section id="schools-education" class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Education Excellence</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our commitment to education is reflected in the quality schools across all four villages</p>
+    </div><!-- High Schools -->
+    <div class="mb-12">
+     <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center" data-aos="fade-up"><i class="fas fa-graduation-cap mr-2 text-orange-600"></i> High Schools (Secondary Education)</h3>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+       <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        <i class="fas fa-school"></i>
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Photani High School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Magangeni (Mbhayimbhayi)</p>
+       <div class="text-center"><span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Secondary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+       <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        <i class="fas fa-school"></i>
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Jim Yingwani High School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Bulwini (Dumela)</p>
+       <div class="text-center"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Secondary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+       <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        <i class="fas fa-school"></i>
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Rhabela High School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Maveke (Nhombelani)</p>
+       <div class="text-center"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Secondary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+       <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        <i class="fas fa-school"></i>
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Frans Sombhani High School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Muswane (Muswani)</p>
+       <div class="text-center"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Secondary Education</span>
+       </div>
+      </div>
+     </div>
+    </div><!-- Primary Schools -->
+    <div>
+     <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center" data-aos="fade-up">📚 Primary Schools (Elementary Education)</h3>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+       <div class="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Chanyela Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Magangeni (Mbhayimbhayi)</p>
+       <div class="text-center"><span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
+       <div class="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Mahlefunye Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Magangeni (Mbhayimbhayi)</p>
+       <div class="text-center"><span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+       <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Mulamula Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Bulwini (Dumela)</p>
+       <div class="text-center"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="250">
+       <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Mzamani Thomas Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Bulwini (Dumela)</p>
+       <div class="text-center"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+       <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Nhombelani Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Maveke (Nhombelani)</p>
+       <div class="text-center"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+      <div class="facility-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="350">
+       <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+        📚
+       </div>
+       <h4 class="text-lg font-bold text-center mb-2">Muswani Primary School</h4>
+       <p class="text-center text-gray-600 text-sm mb-2">Muswane (Muswani)</p>
+       <div class="text-center"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Primary Education</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Community Facilities -->
+  <section id="community-facilities" class="py-16 bg-orange-900 text-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-white">Community Facilities</h2>
+     <p class="text-lg text-orange-200 max-w-3xl mx-auto">Essential services and facilities that serve our community and surrounding areas</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8"><!-- Police Station -->
+     <div class="facility-card bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+      <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+       🚔
+      </div>
+      <h3 class="text-xl font-bold text-center mb-4 text-blue-900">Mulamula Satellite Police Station</h3>
+      <div class="space-y-3 text-sm text-gray-700">
+       <div class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> <span><strong>Location:</strong> Magangeni (Mbhayimbhayi) village</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> <span><strong>Service Area:</strong> 18 villages in Malamulele West region</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> <span><strong>Services:</strong> Community policing, crime prevention, emergency response</span>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+       <p class="text-xs text-blue-800 text-center"><strong>Note:</strong> One of the few satellite police stations serving rural communities in the region</p>
+      </div>
+     </div><!-- Community Library -->
+     <div class="facility-card bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+      <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+       📚
+      </div>
+      <h3 class="text-xl font-bold text-center mb-4 text-green-900">Community Library</h3>
+      <div class="space-y-3 text-sm text-gray-700">
+       <div class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span> <span><strong>Status:</strong> One of few libraries in Collins Chabane Local Municipality</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span> <span><strong>Planned Location:</strong> Dumela village (as per official documents)</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span> <span><strong>Services:</strong> Educational resources, community programs, literacy support</span>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-green-50 rounded-lg">
+       <p class="text-xs text-green-800 text-center"><strong>Historical Note:</strong> Decision made by late Hosi Mulamula VI in April 2019</p>
+      </div>
+     </div><!-- Tribal Office -->
+     <div class="facility-card bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+      <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+       🏛️
+      </div>
+      <h3 class="text-xl font-bold text-center mb-4 text-orange-900">Mulamula Tribal Office</h3>
+      <div class="space-y-3 text-sm text-gray-700">
+       <div class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span> <span><strong>Location:</strong> Dumela village</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span> <span><strong>Services:</strong> Traditional governance, administrative services</span>
+       </div>
+       <div class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span> <span><strong>Additional Services:</strong> Home Affairs &amp; Social Development (partial use of old building)</span>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-orange-50 rounded-lg">
+       <p class="text-xs text-orange-800 text-center"><strong>Function:</strong> Central hub for traditional authority administration and government services</p>
+      </div>
+     </div>
+    </div><!-- Library Development Timeline -->
+    <div class="mt-16 max-w-4xl mx-auto" data-aos="fade-up">
+     <h3 class="text-2xl font-bold text-center mb-8 text-white">Community Library Development Timeline</h3>
+     <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white border-opacity-20">
+      <div class="space-y-6">
+       <div class="flex items-start space-x-4">
+        <div class="timeline-dot mt-2"></div>
+        <div>
+         <h4 class="font-bold text-white">Initial Planning Phase</h4>
+         <p class="text-sm text-orange-200">Library project initiated as part of community development plans</p>
+         <p class="text-xs text-orange-300 mt-1">Location debate: Magangeni vs Bulwini village</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="timeline-dot mt-2"></div>
+        <div>
+         <h4 class="font-bold text-white">April 2019 - Official Decision</h4>
+         <p class="text-sm text-orange-200">Hosi Mulamula VI, late Mdungazi Joseph Maluleke-Photani, submitted official wishes to former MEC Ms Thandi Moraka</p>
+         <p class="text-xs text-orange-300 mt-1">Decision: Convert disputed building to circuit office, build library at Dumela village</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="timeline-dot mt-2"></div>
+        <div>
+         <h4 class="font-bold text-white">Official Documentation</h4>
+         <p class="text-sm text-orange-200">All supporting documents confirmed Dumela village location</p>
+         <p class="text-xs text-orange-300 mt-1">Includes: application, approval, tender advert, and SOPA by former Premier</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="timeline-dot mt-2 bg-green-500"></div>
+        <div>
+         <h4 class="font-bold text-green-300">Current Status</h4>
+         <p class="text-sm text-orange-200">Community library serving educational needs of all four villages</p>
+         <p class="text-xs text-orange-300 mt-1">One of the few libraries in Collins Chabane Local Municipality</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Community News & Media -->
+  <section id="community-news" class="py-16 bg-white">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+     <h2 class="text-4xl font-bold mb-6 text-orange-900">Community News &amp; Media</h2>
+     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Stay updated with the latest news and developments affecting our community</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 md:items-stretch"><!-- News Article -->
+     <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg border-l-4 border-blue-500 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex items-center mb-4">
+       <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white mr-4"><i class="fas fa-newspaper"></i>
+       </div>
+       <div><span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">NEWS ARTICLE</span>
+        <p class="text-sm text-gray-600 mt-1">Latest Community Update</p>
+       </div>
+      </div>
+      <h3 class="text-xl font-bold text-blue-900 mb-4">Limpopo Government Accused of Failing to Build Dumela Library in Correct Village</h3>
+      <p class="text-gray-700 mb-6 leading-relaxed"><strong>By Ernest Mabasa | May 6, 2025</strong><br><br>
+        Limpopo Premier Dr. Phophi Ramathuba has been accused of making fruitless promises to settle the R23 million Dumela Library Project. Local residents in Collins Chabane Municipality are questioning whether the Mulamula Library is built in the right village, as it sits 7km away from the intended Mulamula-Dumela village location.</p>
+      <div class="space-y-3 mb-6">
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-calendar-alt mr-2 text-blue-500"></i> <span>May 6, 2025 - Ernest Mabasa</span>
+       </div>
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> <span>R23 Million Library Project Dispute</span>
+       </div>
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-users mr-2 text-blue-500"></i> <span>Collins Chabane Municipality</span>
+       </div>
+      </div>
+      <div class="mt-auto">
+  <button onclick="window.open('https://www.atnews.co.za/limpopo-government-accused-of-failing-to-build-dumela-library-in-correct-village/', '_blank')" 
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center">
+    <i class="fas fa-external-link-alt mr-2"></i> Read Full Article
+  </button>
+
+      </div>
+     </div><!-- Radio Interview -->
+     <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-lg shadow-lg border-l-4 border-red-500 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+      <div class="flex items-center mb-4">
+       <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white mr-4"><i class="fas fa-microphone"></i>
+       </div>
+       <div><span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">RADIO INTERVIEW</span>
+        <p class="text-sm text-gray-600 mt-1">Community Voice</p>
+       </div>
+      </div>
+      <h3 class="text-xl font-bold text-red-900 mb-4">Mzamani Thomas Primary School Closure Discussion</h3>
+      <p class="text-gray-700 mb-6 leading-relaxed"><strong>Featuring: Raymond Mkateko Maluleke, Royal Council Member</strong><br><br>
+        Listen to Royal Council Member Raymond Mkateko Maluleke discuss the controversial closure of Mzamani Thomas Primary School in Bulwini (Dumela) village. The school faces closure due to lack of teachers, but the Royal Council, kingdom, and village community strongly oppose this decision and its impact on local education.</p>
+      <div class="space-y-3 mb-6">
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-user mr-2 text-red-500"></i> <span>Raymond Mkateko Maluleke - Royal Council Member</span>
+       </div>
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-school mr-2 text-red-500"></i> <span>Mzamani Thomas Primary School - Bulwini Village</span>
+       </div>
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i> <span>Closure Issue: Lack of Teachers</span>
+       </div>
+       <div class="flex items-center text-sm text-gray-600"><i class="fas fa-fist-raised mr-2 text-red-500"></i> <span>Royal Council &amp; Community Opposition</span>
+       </div>
+      </div>
+      <div class="mt-auto"><button onclick="playRadio()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center">
+  <i class="fas fa-play mr-2"></i> Listen to Interview
+</button>
+
+<script>
+  function playRadio() {
+    var audio = new Audio('images/radio.mp3');
+    audio.play();
+  }
+</script>
+
+      </div>
+     </div>
+    </div><!-- News Submission -->
+    <div class="mt-12 bg-gray-50 p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+     <div class="text-center">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-bullhorn mr-2 text-orange-600"></i> Share Community News</h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Have important news or updates to share with the community? Contact our information officers to have your story featured.</p>
+      <div class="flex flex-wrap justify-center gap-4"><button onclick="contactForNews()" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"> <i class="fas fa-phone mr-2"></i> Contact Information Officer </button> <button onclick="openWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"> <i class="fab fa-whatsapp mr-2"></i> WhatsApp News Tip </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Information -->
+  <section class="py-16 bg-gray-100">
+   <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-8 text-gray-800" data-aos="fade-up">Community Contact Information</h2>
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+     <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-2xl mb-4 mx-auto text-white">
+       📞
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Main Office</h3>
+      <p class="text-gray-600">+27 72 108 9311</p>
+     </div>
+     <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+      <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-2xl mb-4 mx-auto text-white">
+       ℹ️
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Information Officer</h3>
+      <p class="text-gray-600">083 956 2679</p>
+     </div>
+     <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-2xl mb-4 mx-auto text-white">
+       📋
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Secretary</h3>
+      <p class="text-gray-600">073 512 6668</p>
+     </div>
+    </div>
+    <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+     <p class="text-lg text-gray-600 mb-6">For more information about our villages, schools, or community facilities, please contact our offices during business hours.</p><button onclick="openWhatsApp()" class="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-700 transition-colors"> Contact via WhatsApp </button>
+    </div>
+   </div>
+  </section>
+
+  <!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" class="fixed bottom-10 right-10 p-4 bg-orange-500/30 text-white rounded-full shadow-lg hover:bg-orange-600/50 transition-colors" id="scrollToTopBtn" style="display: none;">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<script>
+// Show/hide scroll to top button
+window.onscroll = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrollToTopBtn").style.display = "block";
+  } else {
+    document.getElementById("scrollToTopBtn").style.display = "none";
+  }
+};
+
+// Smooth scroll to top
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+    <!-- Footer -->
+<!-- =========  UNIVERSAL FOOTER  ========= -->
+<footer id="universal-footer" class="bg-gradient-to-b from-orange-900 to-orange-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- 1. Logo & One-liner -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+      <img src="images/logo.png" alt="Mulamula Crest" class="w-20 h-20 rounded-2xl border-2 border-white shadow-lg object-cover">
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl font-bold">Mulamula Traditional Authority</h2>
+        <p class="text-orange-200 text-sm">Preserving heritage • Serving four villages • Since 1824</p>
+      </div>
+    </div>
+
+    <!-- 2. Quick-Link Columns -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-sm">
+      <!-- Column A -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-orange-300 transition">Home</a></li>
+          <li><a href="about.html#timeline" class="hover:text-orange-300 transition">History Timeline</a></li>
+          <li><a href="about.html#succession" class="hover:text-orange-300 transition">Succession Line</a></li>
+          <li><a href="leadership.html#royal-council" class="hover:text-orange-300 transition">Royal Council</a></li>
+        </ul>
+      </div>
+
+      <!-- Column B -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html#documents" class="hover:text-orange-300 transition">Official Documents</a></li>
+          <li><a href="index.html#constitution" class="hover:text-orange-300 transition">2016 Constitution</a></li>
+          <li><a href="library.html" target="_blank" class="hover:text-orange-300 transition">Document Library</a></li>
+          <li><a href="about.html#genealogy" class="hover:text-orange-300 transition">Genealogy Tables</a></li>
+        </ul>
+      </div>
+
+      <!-- Column C -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Villages</h3>
+        <ul class="space-y-2">
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Nhombelani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Dumela</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Muswani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Mbhayimbhayi</a></li>
+        </ul>
+      </div>
+
+      <!-- Column D -->
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="https://wa.me/27721089311" target="_blank" class="hover:text-orange-300 transition">WhatsApp Main</a></li>
+          <li><a href="contact.html#office-hours" class="hover:text-orange-300 transition">Office Hours</a></li>
+          <li><a href="contact.html#contact-forms" class="hover:text-orange-300 transition">Send a Message</a></li>
+          <li><a href="leadership.html#governance" class="hover:text-orange-300 transition">Legal Framework</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Divider & Copyright -->
+    <div class="border-t border-orange-700 pt-6 text-center text-xs text-orange-200">
+      <p>&copy; <span id="year"></span> Mulamula Royal Family. All rights reserved.</p>
+      <p class="mt-1">Content extracted from the 2016 Royal Constitution &bull; Recognised under South African Traditional Leadership Framework</p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                offset: 100
+            });
+        });
+
+        // Interactive village map
+        document.querySelectorAll('.map-village').forEach(village => {
+            village.addEventListener('click', function() {
+                const villageId = this.getAttribute('data-village');
+                const villageCard = document.querySelector(`.village-card.${villageId}`);
+                
+                if (villageCard) {
+                    villageCard.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // Highlight effect
+                    villageCard.style.transform = 'scale(1.02)';
+                    villageCard.style.boxShadow = '0 25px 50px -12px rgba(217, 119, 6, 0.3)';
+                    
+                    setTimeout(() => {
+                        villageCard.style.transform = '';
+                        villageCard.style.boxShadow = '';
+                    }, 2000);
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // WhatsApp contact function
+        function openWhatsApp() {
+            const message = "Hello! I would like to get more information about Mulamula Traditional Authority community services and facilities.";
+            const phoneNumber = "27721089311";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // News article function - placeholder for actual link
+        function openNewsArticle() {
+            // Replace this URL with the actual article link when provided
+            const articleUrl = "https://example.com/school-closure-article";
+            
+            // For now, show a message asking for the actual link
+            const customModal = document.createElement('div');
+            customModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            customModal.innerHTML = `
+                <div class="bg-white p-8 rounded-lg max-w-md mx-4">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">News Article Link Needed</h3>
+                        <p class="text-gray-600 mb-6">Please provide the actual article link to complete this feature.</p>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(customModal);
+            
+            // Remove modal when clicking outside
+            customModal.addEventListener('click', function(e) {
+                if (e.target === customModal) {
+                    customModal.remove();
+                }
+            });
+        }
+
+        // Radio interview function - placeholder for actual link
+        function openRadioInterview() {
+            // Replace this URL with the actual radio interview link when provided
+            const radioUrl = "https://example.com/radio-interview";
+            
+            // For now, show a message asking for the actual link
+            const customModal = document.createElement('div');
+            customModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            customModal.innerHTML = `
+                <div class="bg-white p-8 rounded-lg max-w-md mx-4">
+                    <div class="text-center">
+                        <i class="fas fa-microphone text-4xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Radio Interview Link Needed</h3>
+                        <p class="text-gray-600 mb-6">Please provide the actual radio interview link to complete this feature.</p>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(customModal);
+            
+            // Remove modal when clicking outside
+            customModal.addEventListener('click', function(e) {
+                if (e.target === customModal) {
+                    customModal.remove();
+                }
+            });
+        }
+
+        // Contact for news function
+        function contactForNews() {
+            const message = "Hello! I have community news or updates to share with Mulamula Traditional Authority.";
+            const phoneNumber = "27839562679"; // Information Officer number
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // School and facility hover effects
+        document.querySelectorAll('.school-item, .facility-card').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Village card interaction
+        document.querySelectorAll('.village-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Add a subtle pulse effect when clicked
+                this.style.animation = 'pulse 0.6s ease-in-out';
+                
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Statistics counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.getElementById('community-stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ffea7921c873b4',t:'MTc2MDcwNTM2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
