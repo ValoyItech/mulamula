@@ -503,20 +503,22 @@ function closeMobileSidebar() {
     <div class="grid md:grid-cols-2 gap-12 items-center">
       
       <div data-aos="fade-right">
-  <h2 class="text-4xl font-bold mb-6 text-orange-900">Who We Are</h2>
-  <p class="text-lg mb-6 leading-relaxed">
-    The Mulamula Traditional Community is situated in Malamulele-West and is composed of four villages: 
-    Magangeni (Mbhayimbhayi), Maveke (Nhombelani), Bulwini (Dumela), and Muswane (Muswani).
-  </p>
-  <p class="text-lg mb-6 leading-relaxed">
-    Our authority is recognised under the Traditional & Khoi-San Leadership Act 3 of 2019, the Traditional Leadership & Governance Framework Act 41 of 2003, and the Limpopo Traditional Leadership & Institutions Act 6 of 2005.
-  </p>
-  <a href="about.html" 
-     class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
-    Learn More
-  </a>
-</div>
-
+        <h2 class="text-4xl font-bold mb-6 text-orange-900">Who We Are</h2>
+        <p class="text-lg mb-6 leading-relaxed">
+          The Mulamula Traditional Community is situated in Malamulele-West and is composed of four villages: 
+          Magangeni (Mbhayimbhayi), Maveke (Nhombelani), Bulwini (Dumela), and Muswane (Muswani).
+        </p>
+        <p class="text-lg mb-6 leading-relaxed">
+          Our authority is recognised under the <strong>Constitution of South Africa, 1996 (ss 211 & 212)</strong>, the 
+          <strong>Traditional & Khoi-San Leadership Act 3 of 2019</strong>, the 
+          <strong>Traditional Leadership & Governance Framework Act 41 of 2003</strong>, and the 
+          <strong>Limpopo Traditional Leadership & Institutions Act 6 of 2005</strong>.
+        </p>
+        <a href="about.html" 
+           class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+          Learn More
+        </a>
+      </div>
 
       <div data-aos="fade-left">
         <img src="images/hero1.jpg" 
@@ -528,6 +530,7 @@ function closeMobileSidebar() {
     </div>
   </div>
 </section>
+
 
             <!-- Villages Section -->
             <section class="py-16 parallax-bg" style="background-image: url('images/royal.jpg');">
@@ -1147,88 +1150,141 @@ function closeMobileSidebar() {
             </section>
 
             <!-- Contact Section -->
-<section class="py-16 bg-white">
+<!-- ======  MOBILE-OPTIMISED (icons kept, email wrap fixed)  ====== -->
+<section class="py-12 md:py-16 bg-white">
   <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="text-4xl font-bold mb-6 text-orange-900">Contact Us</h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+    <div class="text-center mb-8 md:mb-12" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-orange-900">Contact Us</h2>
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
         Reach out to the Mulamula Traditional Authority for official matters, community inquiries, or documentation requests.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Contact Info -->
-      <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-right">
-        <h3 class="text-2xl font-bold mb-6 text-orange-800">
-          <i class="fa-solid fa-crown text-orange-700 mr-2"></i> Traditional Authority – Main Contact
-        </h3>
-
-        <div class="space-y-4 text-gray-700 text-lg">
-          <p><i class="fab fa-whatsapp text-green-600 mr-2"></i> <strong>WhatsApp:</strong>
-            <a href="https://wa.me/27721089311" target="_blank" class="text-orange-700 hover:underline">+27 72 108 9311</a>
-          </p>
-          <p><i class="fa-solid fa-landmark text-orange-600 mr-2"></i> <strong>Office:</strong> Traditional Authority Office</p>
-          <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i> <strong>Location:</strong> Mulamula Head-Kraal, Limpopo</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <!--  LEFT: CONTACT INFO  -->
+      <div class="bg-orange-50 p-6 md:p-8 rounded-xl shadow-lg space-y-6" data-aos="fade-right">
+        <!--  Main Contact  -->
+        <div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4 text-orange-800 flex items-center gap-2">
+            <i class="fa-solid fa-crown text-orange-700"></i>Traditional Authority – Main Contact
+          </h3>
+          <ul class="space-y-3 text-gray-700 text-base md:text-lg">
+            <li class="flex items-start gap-3">
+              <i class="fab fa-whatsapp text-green-600 mt-1"></i>
+              <span><strong>WhatsApp:</strong>
+                <a href="https://wa.me/27721089311" target="_blank" rel="noopener" class="text-orange-700 hover:underline">+27 72 108 9311</a>
+              </span>
+            </li>
+            <li class="flex items-start gap-3 min-w-0"><!-- 1. allow shrink -->
+              <i class="fa-solid fa-envelope text-orange-600 mt-1"></i>
+              <span><strong>Email:</strong>
+                <a href="mailto:secretary@mulamulatraditionalauthority.org.za"
+                   class="text-orange-700 hover:underline break-all"><!-- 2. wrap long word -->
+                   secretary@mulamulatraditionalauthority.org.za
+                </a>
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-landmark text-orange-600 mt-1"></i>
+              <span><strong>Office:</strong> Traditional Authority Office</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-red-600 mt-1"></i>
+              <span><strong>Location:</strong> Mulamula Head-Kraal, Limpopo</span>
+            </li>
+          </ul>
         </div>
 
-        <hr class="my-6 border-orange-300">
+        <hr class="border-orange-300">
 
-        <h3 class="text-xl font-semibold text-orange-800">
-          <i class="fa-solid fa-circle-info text-orange-600 mr-2"></i> Information Officer
-        </h3>
-        <p class="text-gray-700 mt-1"><strong>Name:</strong> Dayson Dumela</p>
-        <p class="text-gray-700"><i class="fa-solid fa-phone text-green-600 mr-2"></i> <strong>Mobile:</strong> 083 956 2679</p>
-        <p class="text-gray-700"><i class="fa-solid fa-clipboard-list text-orange-600 mr-2"></i> <strong>Services:</strong> General Information & Inquiries</p>
-        <p class="text-gray-700"><i class="fa-regular fa-clock text-orange-600 mr-2"></i> <strong>Availability:</strong> Business Hours</p>
+        <!--  Information Officer  -->
+        <div>
+          <h4 class="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-orange-600"></i>Information Officer
+          </h4>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li><strong>Name:</strong> Dayson Dumela</li>
+            <li><strong>Mobile:</strong> <a href="tel:0839562679" class="text-orange-700 hover:underline">083 956 2679</a></li>
+            <li class="flex items-start gap-2 min-w-0">
+              <strong>Email:</strong>
+              <a href="mailto:dayson.maluleke@mulamulatraditionalauthority.org.za"
+                 class="text-orange-700 hover:underline break-all">
+                 dayson.maluleke@mulamulatraditionalauthority.org.za
+              </a>
+            </li>
+            <li><strong>Services:</strong> General Information & Inquiries</li>
+            <li><strong>Availability:</strong> Business Hours</li>
+          </ul>
+        </div>
 
-        <hr class="my-6 border-orange-300">
+        <hr class="border-orange-300">
 
-        <h3 class="text-xl font-semibold text-orange-800">
-          <i class="fa-solid fa-pen-to-square text-orange-600 mr-2"></i> Council Secretary
-        </h3>
-        <p class="text-gray-700 mt-1"><strong>Name:</strong> Dr Ray Mkateko Mafumbheyani</p>
-        <p class="text-gray-700"><i class="fa-solid fa-phone text-green-600 mr-2"></i> <strong>Mobile:</strong> 073 512 6668</p>
-        <p class="text-gray-700"><i class="fa-solid fa-file-contract text-orange-600 mr-2"></i> <strong>Services:</strong> Official Documentation & Records</p>
-        <p class="text-gray-700"><i class="fa-solid fa-graduation-cap text-orange-600 mr-2"></i> <strong>Title:</strong> Doctor of Philosophy</p>
+        <!--  Council Secretary  -->
+        <div>
+          <h4 class="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-pen-to-square text-orange-600"></i>Council Secretary
+          </h4>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li><strong>Name:</strong> Dr Ray Mkateko Mafumbheyani</li>
+            <li><strong>Mobile:</strong> <a href="tel:0735126668" class="text-orange-700 hover:underline">073 512 6668</a></li>
+            <li class="flex items-start gap-2 min-w-0">
+              <strong>Email:</strong>
+              <a href="mailto:mkateko.maluleke@mulamulatraditionalauthority.org.za"
+                 class="text-orange-700 hover:underline break-all">
+                 mkateko.maluleke@mulamulatraditionalauthority.org.za
+              </a>
+            </li>
+            <li><strong>Services:</strong> Official Documentation & Records</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- WhatsApp Contact Form -->
-      <div class="bg-orange-50 p-8 rounded-lg shadow-lg" data-aos="fade-left">
-        <h3 class="text-2xl font-bold mb-6 text-orange-800">
-          <i class="fab fa-whatsapp text-green-600 mr-2"></i> Send a Message via WhatsApp
+      <!--  RIGHT: WHATSAPP FORM  -->
+      <div class="bg-orange-50 p-6 md:p-8 rounded-xl shadow-lg" data-aos="fade-left">
+        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-orange-800 flex items-center gap-2">
+          <i class="fab fa-whatsapp text-green-600"></i>Send a Message via WhatsApp
         </h3>
 
         <form onsubmit="sendWhatsApp(event)" class="space-y-4">
           <div>
-            <label class="block text-sm font-semibold mb-2">Name</label>
-            <input type="text" id="waName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+            <label class="block text-sm font-semibold mb-2">Name *</label>
+            <input type="text" id="waName" required
+                   class="w-full px-4 py-3 rounded-lg border border-gray-300
+                          focus:outline-none focus:border-orange-500 text-base">
           </div>
 
           <div>
-            <label class="block text-sm font-semibold mb-2">Village (if applicable)</label>
-            <select id="waVillage" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
-  <option value="">Select village</option>
-  <option value="Magangeni (Mbhayimbhayi)">Magangeni (Mbhayimbhayi)</option>
-  <option value="Maveke (Nhombelani)">Maveke (Nhombelani)</option>
-  <option value="Bulwini (Dumela)">Bulwini (Dumela)</option>
-  <option value="Muswane (Muswani)">Muswane (Muswani)</option>
-  <option value="Other">Other</option>
-</select>
-
+            <label class="block text-sm font-semibold mb-2">Village (optional)</label>
+            <select id="waVillage"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300
+                           focus:outline-none focus:border-orange-500 text-base">
+              <option value="">Select village</option>
+              <option>Magangeni (Mbhayimbhayi)</option>
+              <option>Maveke (Nhombelani)</option>
+              <option>Bulwini (Dumela)</option>
+              <option>Muswane (Muswani)</option>
+              <option>Other</option>
+            </select>
           </div>
 
           <div>
-            <label class="block text-sm font-semibold mb-2">Subject</label>
-            <input type="text" id="waSubject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+            <label class="block text-sm font-semibold mb-2">Subject *</label>
+            <input type="text" id="waSubject" required
+                   class="w-full px-4 py-3 rounded-lg border border-gray-300
+                          focus:outline-none focus:border-orange-500 text-base">
           </div>
 
           <div>
-            <label class="block text-sm font-semibold mb-2">Message</label>
-            <textarea id="waMessage" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"></textarea>
+            <label class="block text-sm font-semibold mb-2">Message *</label>
+            <textarea id="waMessage" rows="4" required
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300
+                             focus:outline-none focus:border-orange-500 text-base"></textarea>
           </div>
 
-          <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center space-x-2">
-            <i class="fab fa-whatsapp text-white text-lg"></i>
+          <button type="submit"
+                  class="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold
+                         hover:bg-orange-700 transition-colors flex items-center justify-center gap-2 text-base">
+            <i class="fab fa-whatsapp text-xl"></i>
             <span>Send via WhatsApp</span>
           </button>
         </form>
