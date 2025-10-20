@@ -386,48 +386,62 @@ function closeMobileSidebar() {
   </section>
 
 <!-- Village & District Boundary Maps -->
-<section id="boundary-maps" class="py-16 bg-white">
+<section id="boundary-maps" class="py-16 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <h2 class="text-4xl font-bold mb-6 text-orange-900" data-aos="fade-up">
       Boundary Maps
     </h2>
     <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
-      Explore the official boundaries of the villages under the Mulamula Traditional Authority and their position within the Vhembe District.
+      Official maps showing the Mulamula Traditional Authority boundaries and its position within the Vhembe District.
     </p>
 
     <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="200">
       <!-- Mulamula Villages Boundary -->
-      <div class="bg-orange-50 border border-orange-200 rounded-lg shadow-lg p-6">
-        <h3 class="text-2xl font-bold text-orange-900 mb-4 flex items-center justify-center">
-          <i class="fas fa-map-marked-alt mr-2 text-orange-600"></i>
-          Mulamula Villages Boundary Map
-        </h3>
-        <iframe 
-          src="documents/boundries.pdf" 
-          class="w-full h-[500px] rounded-lg border border-orange-300"
-          title="Mulamula Traditional Authority Boundary Map">
-        </iframe>
-        <p class="text-sm text-gray-600 mt-3 italic">Shows the official boundaries of the four villages: Magangeni, Bulwini, Maveke, and Muswane.</p>
+      <div class="bg-white rounded-xl shadow-lg border border-orange-200 p-8 hover:shadow-2xl transition-all duration-300">
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center text-white text-4xl mb-6 shadow-lg">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-900 mb-3">Mulamula Villages Boundary</h3>
+          <p class="text-gray-600 mb-6 text-sm">
+            Displays the four official villages: Magangeni, Bulwini, Maveke, and Muswane under the Mulamula Traditional Authority.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="documents/boundries.pdf" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition">
+              <i class="fas fa-eye mr-2"></i> View Map
+            </a>
+            <a href="documents/boundries.pdf" download class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition">
+              <i class="fas fa-download mr-2"></i> Download
+            </a>
+          </div>
+        </div>
       </div>
 
-      <!-- Vhembe District View -->
-      <div class="bg-orange-50 border border-orange-200 rounded-lg shadow-lg p-6">
-        <h3 class="text-2xl font-bold text-orange-900 mb-4 flex items-center justify-center">
-          <i class="fas fa-map mr-2 text-orange-600"></i>
-          Vhembe District Boundary Overview
-        </h3>
-        <iframe 
-          src="documents/vhembe.pdf" 
-          class="w-full h-[500px] rounded-lg border border-orange-300"
-          title="Vhembe District Boundary Map">
-        </iframe>
-        <p class="text-sm text-gray-600 mt-3 italic">Displays a broader view of Mulamula Traditional Authority within the Vhembe District Municipality.</p>
+      <!-- Vhembe District Overview -->
+      <div class="bg-white rounded-xl shadow-lg border border-orange-200 p-8 hover:shadow-2xl transition-all duration-300">
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center text-white text-4xl mb-6 shadow-lg">
+            <i class="fas fa-globe-africa"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-900 mb-3">Vhembe District Overview</h3>
+          <p class="text-gray-600 mb-6 text-sm">
+            A broader map showing the Mulamula Traditional Authority within the greater Vhembe District region.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="documents/vhembe.pdf" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition">
+              <i class="fas fa-eye mr-2"></i> View Map
+            </a>
+            <a href="documents/vhembe.pdf" download class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition">
+              <i class="fas fa-download mr-2"></i> Download
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
+  
   <section id="community-stats" class="py-16 bg-white">
    <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-12" data-aos="fade-up">
