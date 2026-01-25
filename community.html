@@ -943,9 +943,14 @@ function closeMobileSidebar() {
       <!-- Image -->
       <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-delay="100">
         <div class="rounded-2xl overflow-hidden shadow-2xl border border-orange-200 bg-white">
-          <img src="images/fiber.jpeg" alt="Fibre rollout meeting at Mulamula Traditional Council"
-               class="w-full h-[320px] object-cover">
-        </div>
+  <!-- Mobile: show full image (no crop). Desktop: still looks nice. -->
+  <img
+    src="images/fiber.jpeg"
+    alt="Fibre rollout meeting at Mulamula Traditional Council"
+    class="w-full h-auto object-contain bg-white sm:max-h-[420px] lg:max-h-[520px]"
+  >
+</div>
+
       </div>
 
       <!-- Text Card -->
