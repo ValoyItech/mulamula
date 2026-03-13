@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Family Gallery - Mulamula Traditional Authority</title>
+
+  <meta name="description" content="A dedicated gallery page for the Mulamula Royal Family, showcasing vatukulu, vana, and direct descendants of Mulamula.">
+  <meta name="keywords" content="Mulamula Royal Family, Royal Gallery, Mulamula descendants, Xitsonga heritage, Malamulele, Limpopo">
+  <meta name="author" content="Mulamula Traditional Authority">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Royal Family Gallery - Mulamula Traditional Authority">
+  <meta property="og:description" content="Explore the royal family gallery of the descendants of Mulamula.">
+  <meta property="og:image" content="https://mulamulatraditionalauthority.org.za/images/logo.png">
+  <meta property="og:url" content="https://mulamulatraditionalauthority.org.za/gallery">
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Royal Family Gallery - Mulamula Traditional Authority">
+  <meta name="twitter:description" content="A visual gallery of the descendants of Mulamula.">
+  <meta name="twitter:image" content="https://mulamulatraditionalauthority.org.za/images/logo.png">
+
+  <link rel="icon" type="image/png" href="https://mulamulatraditionalauthority.org.za/images/logo.png">
+  <link rel="apple-touch-icon" href="https://mulamulatraditionalauthority.org.za/images/logo.png">
+  <link rel="shortcut icon" href="https://mulamulatraditionalauthority.org.za/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    body {
+      box-sizing: border-box;
+    }
+
+    .traditional-pattern {
+      background-image:
+        radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, #D2691E 2px, transparent 2px);
+      background-size: 40px 40px;
+    }
+
+    .parallax-bg {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-orange-50 text-gray-800">
+
+<!-- =========  MOBILE SIDEBAR  ========= -->
+<div id="sidebarOverlay"
+     class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-opacity"
+     onclick="closeMobileSidebar()"></div>
+
+<aside id="mobileSidebar"
+       class="fixed top-0 left-0 w-[300px] h-full bg-gradient-to-b from-orange-900 to-orange-800 text-white shadow-2xl z-50 -translate-x-full transition-transform duration-300 overflow-y-auto">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-8 border-b border-orange-700 pb-4">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Mulamula Logo" class="w-14 h-14 object-cover rounded-2xl border-2 border-white shadow-md">
+        <h2 class="text-2xl font-bold">Menu</h2>
+      </div>
+      <button onclick="closeMobileSidebar()" class="text-white hover:text-orange-300 transition-transform hover:rotate-90">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Home</a>
+      <a href="about.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">About &amp; History</a>
+      <a href="leadership.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Leadership</a>
+      <a href="gallery.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-600 text-white transition-colors shadow">Gallery</a>
+      <a href="community.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Community</a>
+      <a href="contact.html" class="text-lg font-semibold py-3 px-4 rounded-lg bg-orange-700 hover:bg-orange-600 transition-colors shadow">Contact</a>
+    </nav>
+  </div>
+</aside>
+<!-- =========  END MOBILE SIDEBAR  ========= -->
+
+<!-- =========  DESKTOP NAV  ========= -->
+<nav id="mainNav" class="bg-orange-900 text-white shadow-lg sticky top-0 z-40 transition-transform duration-300">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="flex items-center space-x-4">
+        <img src="images/logo.png" alt="Mulamula Logo" class="w-16 h-16 object-contain rounded-full border-4 border-white shadow-lg brightness-110 hover:scale-105 transition-transform">
+        <div>
+          <h1 class="text-xl font-bold leading-tight">Mulamula Traditional Authority</h1>
+          <p class="text-orange-200 text-sm">Royal Family Gallery</p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-orange-200 transition-colors">Home</a>
+        <a href="about.html" class="hover:text-orange-200 transition-colors">About &amp; History</a>
+        <a href="leadership.html" class="hover:text-orange-200 transition-colors">Leadership</a>
+        <a href="gallery.html" class="text-orange-200 font-semibold transition-colors">Gallery</a>
+        <a href="community.html" class="hover:text-orange-200 transition-colors">Community</a>
+        <a href="contact.html" class="hover:text-orange-200 transition-colors">Contact</a>
+      </div>
+
+      <button onclick="openMobileSidebar()" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- =========  END DESKTOP NAV  ========= -->
+
+<script>
+let mobileSidebarOpen = false;
+function openMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.remove('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.remove('opacity-0', 'invisible');
+  document.body.style.overflow = 'hidden';
+  mobileSidebarOpen = true;
+}
+function closeMobileSidebar() {
+  document.getElementById('mobileSidebar').classList.add('-translate-x-full');
+  document.getElementById('sidebarOverlay').classList.add('opacity-0', 'invisible');
+  document.body.style.overflow = '';
+  mobileSidebarOpen = false;
+}
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+  nav.style.transition = 'transform 280ms ease, opacity 280ms ease';
+  nav.style.transform = 'translateY(0)';
+  let lastY = window.scrollY || 0, ticking = false;
+  const MIN_DELTA = 6, HIDE_AFTER = 90;
+  function update(){
+    const currentY = window.scrollY || 0;
+    if (mobileSidebarOpen){ ticking = false; return; }
+    const delta = currentY - lastY;
+    if (Math.abs(delta) < MIN_DELTA){ ticking = false; return; }
+    if (delta > 0 && currentY > HIDE_AFTER){
+      nav.style.transform = 'translateY(-110%)';
+      nav.style.opacity = '0.98';
+    } else if (delta < 0){
+      nav.style.transform = 'translateY(0)';
+      nav.style.opacity = '1';
+    }
+    lastY = currentY;
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+})();
+</script>
+
+<section class="parallax-bg py-20" style="background-image: url('images/royal.jpg');">
+  <div class="bg-black/60 py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white" data-aos="fade-up">Royal Family Gallery</h1>
+      <p class="text-xl text-white max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Vatukulu, vana, and direct descendants of Mulamula captured in a dedicated gallery page.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-white traditional-pattern">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="bg-white/95 rounded-3xl shadow-xl p-8 md:p-10" data-aos="fade-up">
+      <span class="inline-block px-4 py-2 rounded-full bg-orange-100 text-orange-800 font-semibold text-sm mb-4">Family Archive</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-orange-900 mb-4">Descendants of Mulamula</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        This gallery brings together portraits and family group images of the royal descendants, preserving identity, memory, and heritage in one place.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-orange-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
+        <div class="aspect-[4/3] bg-orange-50">
+          <img src="images/image3.jpeg" alt="Vatukulu va Dumela wa Mulamula, Khambani wa Mulamula na Nwa Chavani wa Mulamula" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Vatukulu va Dumela wa Mulamula, Khambani wa Mulamula na Nwa Chavani wa Mulamula
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+        <div class="aspect-[4/3] bg-green-50">
+          <img src="images/image2.jpeg" alt="Vana va Nengeni na vatukulu" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Vana va Nengeni na vatukulu na tombhi ya Nwa Chavani wa ka Mafumbheyani na tukulu wa Nwa Chavani
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="aspect-[4/3] bg-blue-50">
+          <img src="images/image1.jpeg" alt="Vana va Maboko wa Mulamula" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Vana va Maboko wa Mulamula na tukulu wa Nwa Chavani wa Mulamula
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
+        <div class="aspect-[4/3] bg-yellow-50">
+          <img src="images/image4.jpeg" alt="Royal family group photo" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Royal family gathering and descendants of Mulamula
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+        <div class="aspect-[4/3] bg-orange-100">
+          <img src="images/image5.jpeg" alt="Vatukulu va Mulamula kusuka ka yindlu ya Nwa Khwenu na yindlu ya Nwa Mavanyisi loyi a nga duma ku i Nwakapakapa" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Vatukulu va Mulamula kusuka ka yindlu ya Nwa Khwenu na yindlu ya Nwa Mavanyisi loyi a nga duma ku i Nwakapakapa<br>
+          <span class="not-italic text-gray-600">Elias Nengeni, Magezi Daniel Dumela, Thomas Nengeni na Magezi Meshack Nengeni</span>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="aspect-[4/3] bg-amber-100">
+          <img src="images/image6.jpeg" alt="Samuel Mafemani Mafumbheyani, Cleford Hakamela, Dr Mkateko Raymond Maluleke and Hosana Skheto Kenny Hakamela" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Samuel Mafemani Mafumbheyani, Cleford Hakamela, Dr Mkateko Raymond Maluleke &amp; Hosana Skheto Kenny Hakamela
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="rounded-3xl bg-gradient-to-r from-orange-900 to-orange-700 text-white p-8 md:p-10 shadow-2xl text-center" data-aos="zoom-in">
+      <h2 class="text-3xl font-bold mb-4">Living Heritage</h2>
+      <p class="text-orange-100 text-lg leading-relaxed max-w-3xl mx-auto">
+        Every image in this gallery forms part of the living memory of the Mulamula Royal Family and helps preserve the lineage for future generations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer id="universal-footer" class="bg-gradient-to-b from-orange-900 to-orange-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+      <img src="images/logo.png" alt="Mulamula Crest" class="w-20 h-20 rounded-2xl border-2 border-white shadow-lg object-cover">
+      <div class="text-center md:text-left">
+        <h2 class="text-2xl font-bold">Mulamula Traditional Authority</h2>
+        <p class="text-orange-200 text-sm">Preserving heritage • Serving four villages • Since 1824</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-sm">
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-orange-300 transition">Home</a></li>
+          <li><a href="about.html#timeline" class="hover:text-orange-300 transition">History Timeline</a></li>
+          <li><a href="about.html#succession" class="hover:text-orange-300 transition">Succession Line</a></li>
+          <li><a href="gallery.html" class="hover:text-orange-300 transition">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html#documents" class="hover:text-orange-300 transition">Official Documents</a></li>
+          <li><a href="index.html#constitution" class="hover:text-orange-300 transition">2016 Constitution</a></li>
+          <li><a href="library.html" target="_blank" class="hover:text-orange-300 transition">Document Library</a></li>
+          <li><a href="about.html#genealogy" class="hover:text-orange-300 transition">Genealogy Tables</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Villages</h3>
+        <ul class="space-y-2">
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Nhombelani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Dumela</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Muswani</a></li>
+          <li><a href="contact.html#villages-map" class="hover:text-orange-300 transition">Mbhayimbhayi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-3 text-orange-200">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="https://wa.me/27721089311" target="_blank" class="hover:text-orange-300 transition">WhatsApp Main</a></li>
+          <li><a href="contact.html#office-hours" class="hover:text-orange-300 transition">Office Hours</a></li>
+          <li><a href="contact.html#contact-forms" class="hover:text-orange-300 transition">Send a Message</a></li>
+          <li><a href="leadership.html#governance" class="hover:text-orange-300 transition">Legal Framework</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-orange-700 pt-6 text-center text-xs text-orange-200">
+      <p>&copy; <span id="year"></span> Mulamula Royal Family. All rights reserved.</p>
+      <p class="mt-1">Content extracted from the 2016 Royal Constitution &bull; Recognised under South African Traditional Leadership Framework</p>
+      <p class="mt-2">
+        Design by
+        <a href="https://valoyitech.co.za/" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:text-orange-300 font-semibold">ValoyItech</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  });
+</script>
+
+</body>
+</html>
