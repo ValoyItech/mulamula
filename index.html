@@ -646,49 +646,63 @@ function closeMobileSidebar() {
 
     <div class="grid lg:grid-cols-3 gap-8 items-start">
 
-      <!-- Left: Document highlight card -->
-      <div class="lg:col-span-1" data-aos="fade-right">
-        <div class="bg-white rounded-2xl shadow-lg border border-orange-100 p-6">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5l5 5v12a2 2 0 01-2 2z"/>
-              </svg>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-500 mb-1">High Court of South Africa, Limpopo Division</p>
-              <p class="font-semibold text-orange-900 leading-tight">
-                Judgment by Acting Judge Masilo (Masilo AJ)
-              </p>
-              <p class="text-sm text-gray-600 mt-1">
-                Case No. 5948/2018
-              </p>
-            </div>
-          </div>
-
-          <div class="mt-6 space-y-3 text-sm text-gray-700">
-            <div class="flex items-start gap-2">
-              <span class="mt-1 text-orange-600">●</span>
-              <p>Featured legal record for public reference and transparency.</p>
-            </div>
-            <div class="flex items-start gap-2">
-              <span class="mt-1 text-orange-600">●</span>
-              <p>Includes findings on legal authority, process and fairness.</p>
-            </div>
-          </div>
-
-          <a href="documents/file-merged.pdf" download
-             class="mt-6 inline-flex w-full items-center justify-center gap-2 bg-orange-600 text-white px-5 py-3 rounded-xl hover:bg-orange-700 transition-colors font-semibold">
-            Download Judgment (PDF)
-          </a>
-
-          <p class="text-xs text-gray-500 mt-3">
-            If you cannot open the file in-browser, please download and view using a PDF reader.
-          </p>
-        </div>
+      <!-- Left: Document highlight card (UPDATED for Leave to Appeal) -->
+<div class="lg:col-span-1" data-aos="fade-right">
+  <div class="bg-white rounded-2xl shadow-lg border border-orange-100 p-6">
+    <div class="flex items-start gap-4">
+      <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
       </div>
+
+      <div>
+        <p class="text-sm text-gray-500 mb-1">High Court of South Africa, Limpopo Division</p>
+        <p class="font-semibold text-red-900 leading-tight">
+          Leave to Appeal Application
+        </p>
+        <p class="text-sm text-gray-600 mt-1">
+          Case No. 5948/2018 | Heard: 27 March 2026
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 space-y-3 text-sm text-gray-700">
+      <div class="flex items-start gap-2">
+        <span class="mt-1 text-orange-600">●</span>
+        <p>Heads of Argument filed 23 March 2026 by Maboku Mangena Attorneys.</p>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="mt-1 text-orange-600">●</span>
+        <p>Seven grounds of appeal including review/appeal conversion, extra-record evidence, and customary law misapplication.</p>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="mt-1 text-orange-600">●</span>
+        <p>Appeal record includes original Masilo AJ judgment below.</p>
+      </div>
+    </div>
+
+    <div class="mt-6 space-y-2">
+      <a href="documents/CASE5948_HEADS_OF_ARGUMENT.pdf" download
+         class="inline-flex w-full items-center justify-center gap-2 bg-red-600 text-white px-5 py-3 rounded-xl hover:bg-red-700 transition-colors font-semibold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download Heads of Argument (PDF)
+      </a>
+      
+      <a href="documents/file-merged.pdf" target="_blank"
+         class="inline-flex w-full items-center justify-center gap-2 bg-orange-100 text-orange-800 px-5 py-2 rounded-xl hover:bg-orange-200 transition-colors text-sm font-semibold">
+        View Original Judgment →
+      </a>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-3">
+      Filed: 24 March 2026 | Attorneys: Maboku Mangena Attorneys Inc
+    </p>
+  </div>
+</div>
 
       <!-- Right: Plain-language summary -->
       <div class="lg:col-span-2" data-aos="fade-left">
@@ -1007,54 +1021,105 @@ function closeMobileSidebar() {
     </div>
   </div>
 
-  <!-- ===== Case 5948/2018 ===== -->
+ <!-- ===== Case 5948/2018 – Corrected Leave to Appeal Timeline ===== -->
 <div class="mt-8 rounded-2xl bg-red-50 border border-red-100 p-6">
   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
     <div>
-      <h4 class="text-2xl font-bold text-red-900">Case 5948/2018 – High Court (Masilo AJ)</h4>
+      <h4 class="text-2xl font-bold text-red-900">Case 5948/2018 – Leave to Appeal Proceedings</h4>
       <p class="text-sm text-gray-700 mt-1">
-        Official High Court judgment and related appellate filing.
+        Maluleke Desmond N.O. obo Mdungazi Joseph Maluleke v Maluleke Mphephu Tsatsawani N.O. obo Hasani Thomas Mulamula & Others
       </p>
       <div class="mt-3 flex flex-wrap gap-2">
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white border border-red-200 text-red-900">High Court</span>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white border border-red-200 text-red-900">Judgment</span>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white border border-red-200 text-red-900">Appeal Record</span>
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white border border-red-200 text-red-900">Leave to Appeal</span>
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white border border-red-200 text-red-900">Opposing Papers Filed</span>
       </div>
+    </div>
+
+    <div class="bg-white border border-red-200 rounded-xl p-4 w-full md:w-[320px]">
+      <p class="text-sm font-semibold text-red-900">Current Status</p>
+      <p class="text-sm text-gray-700 mt-1">
+        Respondents have filed opposing Heads of Argument on 23 March 2026, submitting that no reasonable prospects of success exist and that Masilo AJ's judgment was correct.
+      </p>
     </div>
   </div>
 
+  <!-- Updated Timeline -->
   <div class="mt-6 space-y-5">
 
     <div class="timeline-item">
-      <p class="font-bold text-gray-900">High Court Judgment – Masilo AJ</p>
+      <p class="font-bold text-gray-900">23 March 2026 – Respondents' Heads of Argument Filed</p>
       <p class="text-sm text-gray-700 mt-1">
-        Official judgment delivered by the High Court.
+        First, Second and Third Respondents (Mulamula Royal Family & Traditional Council) filed comprehensive Heads of Argument <strong>opposing</strong> the application for Leave to Appeal. Filed by MB Mkhari Attorneys Inc.
+      </p>
+      
+      <!-- Respondents' Key Arguments Box -->
+      <div class="mt-3 bg-orange-50 p-4 rounded-lg border border-orange-200 text-sm text-gray-700">
+        <p class="font-semibold text-orange-900 mb-2">Respondents' Submissions:</p>
+        <ul class="list-disc list-inside space-y-1 ml-2">
+          <li>No reasonable prospects that another Court would come to a different conclusion</li>
+          <li>Justice Masilo correctly found the Commission's recommendations (06 Sept 2017) should be set aside</li>
+          <li>Premier's decision to approve the Commission's report was correctly reviewed and set aside</li>
+          <li>Senior Traditional Leader correctly restored to Hasani Thomas Mulamula</li>
+          <li>Appointment of Desmond Maluleke's son as acting leader correctly set aside</li>
+          <li>Royal Family correctly directed to identify suitable person within 90 days per customary law</li>
+          <li>Costs order against Premier correctly granted</li>
+        </ul>
+      </div>
+
+      <div class="mt-2 flex flex-wrap gap-3">
+        <a href="documents/CASE5948_RESPONDENTS_HEADS_OF_ARGUMENT.pdf" target="_blank"
+           class="text-sm font-semibold text-orange-800 hover:underline">View Opposing Heads (PDF)</a>
+      </div>
+      
+      <p class="text-xs text-gray-500 mt-2">
+        <strong>Attorneys:</strong> MB Mkhari Attorneys Inc (43 Biccard Street, Polokwane) | Ref: M.B MKHARI/MM15/25
+      </p>
+    </div>
+
+    <div class="timeline-item opacity-75">
+      <p class="font-bold text-gray-900">[Earlier] Applicant's Application for Leave to Appeal</p>
+      <p class="text-sm text-gray-700 mt-1">
+        Applicant (Maluleke Desmond N.O.) sought leave to appeal the judgment of Masilo AJ handed down on 30 January 2026. Grounds included alleged misdirection on customary law, statutory interpretation, and procedure.
       </p>
       <div class="mt-2 flex flex-wrap gap-3">
-        <a href="documents/file-merged.pdf" target="_blank"
-           class="text-sm font-semibold text-orange-800 hover:underline">View PDF</a>
-        <a href="documents/file-merged.pdf" download
-           class="text-sm font-semibold text-orange-800 hover:underline">Download</a>
+        <span class="text-xs px-2 py-1 bg-gray-200 rounded text-gray-600">Awaiting Court Date</span>
       </div>
     </div>
 
     <div class="timeline-item">
-      <p class="font-bold text-gray-900">Leave to Appeal</p>
+      <p class="font-bold text-gray-900">30 January 2026 – Judgment Delivered</p>
       <p class="text-sm text-gray-700 mt-1">
-        Application and notice relating to appellate proceedings.
+        Masilo AJ delivered judgment at Polokwane High Court, Limpopo Division, setting aside the Premier's decisions and restoring the Mulamula Royal Family's leadership prerogatives.
       </p>
       <div class="mt-2 flex flex-wrap gap-3">
-        <a href="documents/CASE5948_LEAVE_TO_APPEAL.pdf" target="_blank"
-           class="text-sm font-semibold text-orange-800 hover:underline">View PDF</a>
-        <a href="documents/CASE5948_LEAVE_TO_APPEAL.pdf" download
-           class="text-sm font-semibold text-orange-800 hover:underline">Download</a>
+        <a href="documents/file-merged.pdf" target="_blank"
+           class="text-sm font-semibold text-orange-800 hover:underline">View Judgment</a>
       </div>
     </div>
 
   </div>
-</div>
 
+  <!-- Legal Framework Box -->
+  <div class="mt-6 bg-white border border-orange-200 rounded-xl p-4">
+    <h4 class="font-semibold text-orange-900 mb-2">Legal Test Applied (Superior Court Act 10 of 2013, s 17(1))</h4>
+    <p class="text-sm text-gray-700">
+      The Respondents submit that leave to appeal may only be granted where:
+    </p>
+    <ul class="text-sm text-gray-700 list-disc list-inside mt-2 space-y-1">
+      <li>The appeal would have a <strong>reasonable prospect of success</strong>; or</li>
+      <li>There is some other <strong>compelling reason</strong> why the appeal should be heard</li>
+    </ul>
+    <p class="text-sm text-gray-600 mt-2 italic">
+      Citing: <em>Mount Chevaux Trust v Tina Goosen</em>; <em>Van Zyl v Steyn</em>; <em>National Coalition for Gay and Lesbian Equality v Minister of Home Affairs</em>
+    </p>
+  </div>
 
+  <!-- Attorney Details Footer -->
+  <div class="mt-6 pt-4 border-t border-red-200 text-xs text-gray-600">
+    <p><strong>Respondents' Attorneys:</strong> MB Mkhari Attorneys Inc | 43 Biccard Street, Biccard Park, Polokwane | Tel: 015 290 7310</p>
+    <p class="mt-1"><strong>Applicant's Attorneys:</strong> Maboku Mangena Attorneys Inc (as previously noted on record)</p>
+    <p class="mt-1"><strong>State Attorney:</strong> Representing 4th-6th Respondents (Premier, Provincial Committee, Commission)</p>
+  </div>
 </div>
 
 
