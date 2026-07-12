@@ -40,9 +40,7 @@
       box-sizing: border-box;
     }
 
-    body {
-      box-sizing: border-box;
-    }
+    body { box-sizing: border-box; }
 
     .traditional-pattern {
       background-image:
@@ -59,15 +57,162 @@
 
     .gallery-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .gallery-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      flex-direction: column;
+    }
+
+    #lightbox.active { display: flex; }
+
+    #lightbox-scroll {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      display: flex;
+      align-items: center;
+      scrollbar-width: none; /* Firefox */
+    }
+    #lightbox-scroll::-webkit-scrollbar { display: none; }
+
+    .lightbox-slide {
+      flex: 0 0 100vw;
+      height: 100%;
+      scroll-snap-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .lightbox-slide img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px 28px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: white;
+      text-align: center;
+      font-size: 1.05rem;
+      font-style: italic;
+      pointer-events: none;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      z-index: 10;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+
+    .lightbox-close { top: 16px; right: 16px; }
+    .lightbox-prev  { top: 50%; left: 16px; transform: translateY(-50%); }
+    .lightbox-next  { top: 50%; right: 16px; transform: translateY(-50%); }
+    .lightbox-prev:hover { transform: translateY(-50%) scale(1.1); }
+    .lightbox-next:hover { transform: translateY(-50%) scale(1.1); }
+
+    .lightbox-counter {
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem;
+      background: rgba(0,0,0,0.4);
+      padding: 4px 14px;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    /* Gallery grid: masonry-like feel with mixed orientations */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1280px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Portrait images span 2 rows on desktop for visual balance */
+    .gallery-item.portrait {
+      grid-row: span 1;
+    }
+    @media (min-width: 768px) {
+      .gallery-item.portrait {
+        grid-row: span 2;
+      }
+    }
   </style>
+<base target="_blank">
 </head>
 <body class="bg-orange-50 text-gray-800">
+
+<!-- =========  LIGHTBOX  ========= -->
+<div id="lightbox">
+  <div class="lightbox-counter" id="lbCounter">1 / 9</div>
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <button class="lightbox-prev" onclick="lbPrev()" aria-label="Previous">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="lightbox-next" onclick="lbNext()" aria-label="Next">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div id="lightbox-scroll">
+    <!-- Slides injected by JS -->
+  </div>
+
+  <div class="lightbox-caption" id="lbCaption"></div>
+</div>
+<!-- =========  END LIGHTBOX  ========= -->
 
 <!-- =========  MOBILE SIDEBAR  ========= -->
 <div id="sidebarOverlay"
@@ -199,9 +344,10 @@ function closeMobileSidebar() {
 
 <section class="py-16 bg-orange-50">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div class="gallery-grid" id="galleryGrid">
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
+      <!-- 1 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-src="images/image3.jpeg" data-caption="Vatukulu va Dumela wa Mulamula, Khambani wa Mulamula na Nwa Chavani wa Mulamula">
         <div class="aspect-[4/3] bg-orange-50">
           <img src="images/image3.jpeg" alt="Vatukulu va Dumela wa Mulamula, Khambani wa Mulamula na Nwa Chavani wa Mulamula" class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -210,7 +356,8 @@ function closeMobileSidebar() {
         </figcaption>
       </figure>
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+      <!-- 2 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50" data-src="images/image2.jpeg" data-caption="Vana va Nengeni na vatukulu na tombhi ya Nwa Chavani wa ka Mafumbheyani na tukulu wa Nwa Chavani">
         <div class="aspect-[4/3] bg-green-50">
           <img src="images/image2.jpeg" alt="Vana va Nengeni na vatukulu" class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -219,7 +366,8 @@ function closeMobileSidebar() {
         </figcaption>
       </figure>
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      <!-- 3 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-src="images/image1.jpeg" data-caption="Vana va Maboko wa Mulamula na tukulu wa Nwa Chavani wa Mulamula">
         <div class="aspect-[4/3] bg-blue-50">
           <img src="images/image1.jpeg" alt="Vana va Maboko wa Mulamula" class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -228,7 +376,8 @@ function closeMobileSidebar() {
         </figcaption>
       </figure>
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
+      <!-- 4 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-src="images/image4.jpeg" data-caption="Royal family gathering and descendants of Mulamula">
         <div class="aspect-[4/3] bg-yellow-50">
           <img src="images/image4.jpeg" alt="Royal family group photo" class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -237,7 +386,8 @@ function closeMobileSidebar() {
         </figcaption>
       </figure>
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+      <!-- 5 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50" data-src="images/image5.jpeg" data-caption="Vatukulu va Mulamula kusuka ka yindlu ya Nwa Khwenu na yindlu ya Nwa Mavanyisi loyi a nga duma ku i Nwakapakapa — Elias Nengeni, Magezi Daniel Dumela, Thomas Nengeni na Magezi Meshack Nengeni">
         <div class="aspect-[4/3] bg-orange-100">
           <img src="images/image5.jpeg" alt="Vatukulu va Mulamula kusuka ka yindlu ya Nwa Khwenu na yindlu ya Nwa Mavanyisi loyi a nga duma ku i Nwakapakapa" class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -247,12 +397,43 @@ function closeMobileSidebar() {
         </figcaption>
       </figure>
 
-      <figure class="gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      <!-- 6 -->
+      <figure class="gallery-item gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-src="images/image6.jpeg" data-caption="Samuel Mafemani Mafumbheyani, Cleford Hakamela, Dr Mkateko Raymond Maluleke &amp; Hosana Skheto Kenny Hakamela">
         <div class="aspect-[4/3] bg-amber-100">
           <img src="images/image6.jpeg" alt="Samuel Mafemani Mafumbheyani, Cleford Hakamela, Dr Mkateko Raymond Maluleke and Hosana Skheto Kenny Hakamela" class="w-full h-full object-cover" loading="lazy">
         </div>
         <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
           Samuel Mafemani Mafumbheyani, Cleford Hakamela, Dr Mkateko Raymond Maluleke &amp; Hosana Skheto Kenny Hakamela
+        </figcaption>
+      </figure>
+
+      <!-- 7 NEW -->
+      <figure class="gallery-item portrait gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-src="images/images111.jpeg" data-caption="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)">
+        <div class="h-full min-h-[300px] md:min-h-[500px] bg-stone-100">
+          <img src="images/images111.jpeg" alt="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)
+        </figcaption>
+      </figure>
+
+      <!-- 8 NEW -->
+      <figure class="gallery-item portrait gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50" data-src="images/images112.jpeg" data-caption="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)">
+        <div class="h-full min-h-[300px] md:min-h-[500px] bg-stone-100">
+          <img src="images/images112.jpeg" alt="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)
+        </figcaption>
+      </figure>
+
+      <!-- 9 NEW -->
+      <figure class="gallery-item portrait gallery-card bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-src="images/images113.jpeg" data-caption="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)">
+        <div class="h-full min-h-[300px] md:min-h-[500px] bg-stone-100">
+          <img src="images/images113.jpeg" alt="Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <figcaption class="p-5 text-center text-sm md:text-base text-gray-700 italic">
+          Dumela, Maboko na Mafumbheyani (swihluke swa Mulamula)
         </figcaption>
       </figure>
 
@@ -335,6 +516,103 @@ function closeMobileSidebar() {
 </footer>
 
 <script>
+  /* ===== LIGHTBOX ===== */
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox     = document.getElementById('lightbox');
+  const lbScroll     = document.getElementById('lightbox-scroll');
+  const lbCaption    = document.getElementById('lbCaption');
+  const lbCounter    = document.getElementById('lbCounter');
+  let   slides       = [];
+
+  function buildLightbox() {
+    lbScroll.innerHTML = '';
+    slides = [];
+    galleryItems.forEach((item, idx) => {
+      const src     = item.dataset.src;
+      const caption = item.dataset.caption;
+      const slide   = document.createElement('div');
+      slide.className = 'lightbox-slide';
+      slide.dataset.index = idx;
+      slide.innerHTML = `<img src="${src}" alt="${caption}" loading="lazy">`;
+      lbScroll.appendChild(slide);
+      slides.push({ src, caption });
+    });
+  }
+
+  function openLightbox(startIndex) {
+    buildLightbox();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    goToSlide(startIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    const slide = lbScroll.children[index];
+    if (slide) {
+      slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      lbCaption.textContent = slides[index].caption;
+      lbCounter.textContent = (index + 1) + ' / ' + slides.length;
+    }
+  }
+
+  function lbPrev() {
+    const scrollLeft = lbScroll.scrollLeft;
+    const vw = window.innerWidth;
+    const current = Math.round(scrollLeft / vw);
+    goToSlide(current - 1);
+  }
+
+  function lbNext() {
+    const scrollLeft = lbScroll.scrollLeft;
+    const vw = window.innerWidth;
+    const current = Math.round(scrollLeft / vw);
+    goToSlide(current + 1);
+  }
+
+  // Click on gallery card opens lightbox
+  galleryItems.forEach((item, idx) => {
+    item.addEventListener('click', () => openLightbox(idx));
+  });
+
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbPrev();
+    if (e.key === 'ArrowRight') lbNext();
+  });
+
+  // Swipe support (touch)
+  let touchStartX = 0;
+  let touchEndX   = 0;
+  lbScroll.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  lbScroll.addEventListener('touchend',   (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? lbNext() : lbPrev();
+    }
+  }, { passive: true });
+
+  // Update caption on scroll snap
+  lbScroll.addEventListener('scroll', () => {
+    if (!lightbox.classList.contains('active')) return;
+    const vw = window.innerWidth;
+    const idx = Math.round(lbScroll.scrollLeft / vw);
+    if (slides[idx]) {
+      lbCaption.textContent = slides[idx].caption;
+      lbCounter.textContent = (idx + 1) + ' / ' + slides.length;
+    }
+  }, { passive: true });
+
+  /* ===== AOS & YEAR ===== */
   document.getElementById('year').textContent = new Date().getFullYear();
   document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
